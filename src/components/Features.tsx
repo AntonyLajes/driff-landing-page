@@ -55,7 +55,7 @@ export function Features() {
           {features.cards.map((f, i) => (
             <div
               key={f.title}
-              className="flex flex-col gap-3.5 rounded-card border border-line bg-card p-7"
+              className="card-hover flex flex-col gap-3.5 rounded-card border border-line bg-card p-7"
             >
               <IconChip icon={CARD_ICONS[i]} />
               <h3 className="text-lg font-bold text-foreground">{f.title}</h3>

@@ -175,6 +175,22 @@
     animation: tile-swap 0.5s ease both;
   }
 
+  /* Lift + accent border + shadow on hover for content cards. */
+  .card-hover {
+    transition:
+      transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.22s ease,
+      border-color 0.22s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--primary) 45%, var(--line));
+    box-shadow: 0 14px 32px -12px #0f0d2e26;
+  }
+  .dark .card-hover:hover {
+    box-shadow: 0 14px 32px -12px #00000066;
+  }
+
   /* Dotted connector with an orange dot traveling toward the Driff node. */
   .dot-line {
     position: relative;
@@ -250,6 +266,12 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+    .card-hover {
+      transition: border-color 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: none;
     }
     .text-shine-primary,
     .driff-node,

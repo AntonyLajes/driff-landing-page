@@ -53,7 +53,7 @@ export function SectionHead({
       >
         {eyebrow}
       </span>
-      <h2 className="text-balance text-3xl font-bold leading-[1.1] text-foreground sm:text-[40px]">
+      <h2 className="text-shine text-balance text-3xl font-bold leading-[1.1] text-foreground sm:text-[40px]">
         {title}
       </h2>
       {subtitle ? (
