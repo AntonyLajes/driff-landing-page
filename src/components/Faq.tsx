@@ -1,39 +1,18 @@
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
 
+import { useCopy } from '@/i18n'
 import { Section, SectionHead } from './primitives'
 
-const FAQS = [
-  {
-    q: 'Meus dados e meu código estão seguros?',
-    a: 'O Driff só lê os metadados e diffs necessários para gerar os resumos, com permissões mínimas. Não armazenamos seu código-fonte.',
-  },
-  {
-    q: 'Preciso mudar meu fluxo de trabalho?',
-    a: 'Não. Você continua usando as ferramentas que já usa — o Driff trabalha em segundo plano, sem atrapalhar.',
-  },
-  {
-    q: 'Com quais ferramentas o Driff integra?',
-    a: 'Buscamos o que muda em diversas origens de código (GitHub disponível hoje; GitLab, Bitbucket e outras chegando) e publicamos em vários destinos (Notion disponível; Slack, Discord, Teams e mais a caminho).',
-  },
-  {
-    q: 'Quanto vai custar?',
-    a: 'Durante o beta é totalmente gratuito. Os planos pagos virão depois, com base no uso — projetos, destinos e volume de resumos.',
-  },
-  {
-    q: 'Em que idioma os resumos são escritos?',
-    a: 'Português fluente e profissional por padrão. Customização de tom, tamanho e idioma está chegando.',
-  },
-]
-
 export function Faq() {
+  const { faq } = useCopy()
   const [open, setOpen] = useState(0)
 
   return (
     <Section id="faq" tone="background">
-      <SectionHead eyebrow="PERGUNTAS FREQUENTES" title="Tudo que você quer saber antes de entrar." />
+      <SectionHead eyebrow={faq.eyebrow} title={faq.title} />
       <div className="mx-auto mt-10 flex max-w-[780px] flex-col gap-3.5">
-        {FAQS.map((item, i) => {
+        {faq.items.map((item, i) => {
           const isOpen = open === i
           return (
             <div key={item.q} className="rounded-[14px] border border-line bg-card">

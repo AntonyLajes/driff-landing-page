@@ -110,7 +110,7 @@ export function HeroFlow() {
         <GitMerge size={34} className="text-on-primary" />
       </div>
 
-      <div className="dot-line dot-line-rev w-16 shrink-0 lg:w-24" />
+      <div className="dot-line w-16 shrink-0 lg:w-24" />
 
       {/* Destinations */}
       <div className="relative h-[210px] w-[170px]">

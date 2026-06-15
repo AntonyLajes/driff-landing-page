@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
 import { GitMerge } from 'lucide-react'
 
-const LINKS = [
-  { label: 'Como funciona', href: '#como-funciona' },
-  { label: 'Recursos', href: '#recursos' },
-  { label: 'Integrações', href: '#integracoes' },
-  { label: 'FAQ', href: '#faq' },
-]
+import { useCopy } from '@/i18n'
+import { LanguageSwitcher } from './LanguageSwitcher'
+
+const HREFS = ['#como-funciona', '#recursos', '#integracoes', '#faq']
 
 export function Nav() {
+  const copy = useCopy()
   const [scrolled, setScrolled] = useState(false)
+
+  const links = [
+    { label: copy.nav.howItWorks, href: HREFS[0] },
+    { label: copy.nav.features, href: HREFS[1] },
+    { label: copy.nav.integrations, href: HREFS[2] },
+    { label: copy.nav.faq, href: HREFS[3] },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
@@ -20,7 +26,7 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 flex justify-center transition-[padding,background-color,border-color] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 flex justify-center transition-all duration-300 ${
         scrolled
           ? 'border-b border-line/0 bg-background/0 pt-3'
           : 'border-b border-line/50 bg-background/70 pt-0 backdrop-blur-md'
@@ -41,7 +47,7 @@ export function Nav() {
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
-          {LINKS.map((l) => (
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -52,12 +58,15 @@ export function Nav() {
           ))}
         </div>
 
-        <a
-          href="#whitelist"
-          className="rounded-pill bg-primary px-[18px] py-2.5 text-sm font-semibold text-on-primary transition-all hover:opacity-90 hover:shadow-[0_8px_24px_-8px_var(--primary)]"
-        >
-          Entrar na whitelist
-        </a>
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          <a
+            href="#whitelist"
+            className="rounded-pill bg-primary px-[18px] py-2.5 text-sm font-semibold text-on-primary transition-all hover:opacity-90 hover:shadow-[0_8px_24px_-8px_var(--primary)]"
+          >
+            {copy.nav.cta}
+          </a>
+        </div>
       </nav>
     </header>
   )

@@ -1,6 +1,7 @@
 import { ArrowRight, ChevronDown, GitMerge } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
 
+import { useCopy } from '@/i18n'
 import { BrandIcon, type BrandName } from './BrandIcon'
 import { Section, SectionHead } from './primitives'
 
@@ -30,6 +31,7 @@ function Glyph({ node }: { node: Node }) {
 }
 
 function NodeRow({ node }: { node: Node }) {
+  const { integrations } = useCopy()
   return (
     <div
       className={`flex items-center gap-2.5 rounded-xl border border-line bg-card px-3.5 py-2.5 ${
@@ -43,10 +45,13 @@ function NodeRow({ node }: { node: Node }) {
         {node.name}
       </span>
       {node.live ? (
-        <span className="size-1.5 shrink-0 rounded-full bg-success" title="Disponível" />
+        <span
+          className="size-1.5 shrink-0 rounded-full bg-success"
+          title={integrations.available}
+        />
       ) : (
         <span className="shrink-0 text-[11px] font-medium text-muted-foreground">
-          em desenvolvimento
+          {integrations.inDevelopment}
         </span>
       )}
     </div>
@@ -82,17 +87,18 @@ function Connector() {
 }
 
 export function Integrations() {
+  const { integrations } = useCopy()
   return (
     <Section id="integracoes" tone="background">
       <SectionHead
-        eyebrow="INTEGRAÇÕES"
+        eyebrow={integrations.eyebrow}
         eyebrowTone="primary"
-        title="Conecte suas origens. Entregue onde o time já trabalha."
-        subtitle="O Driff busca o que muda em diversas fontes de código e publica os resumos em vários destinos — sem você trocar de ferramenta."
+        title={integrations.title}
+        subtitle={integrations.subtitle}
       />
 
       <div className="mt-14 flex flex-col items-center gap-2 lg:flex-row lg:items-center lg:gap-0">
-        <Cluster label="ORIGENS" nodes={ORIGINS} />
+        <Cluster label={integrations.origins} nodes={ORIGINS} />
 
         <Connector />
 
@@ -106,15 +112,12 @@ export function Integrations() {
 
         <Connector />
 
-        <Cluster label="DESTINOS" nodes={DESTINATIONS} />
+        <Cluster label={integrations.destinations} nodes={DESTINATIONS} />
       </div>
 
-      <p className="mt-10 text-center text-[13px] text-muted-foreground">
-        <span className="inline-flex items-center gap-1.5 font-medium text-foreground">
-          <span className="size-1.5 rounded-full bg-success" />
-          6 integrações disponíveis no beta
-        </span>{' '}
-        · as demais em desenvolvimento ativo.
+      <p className="mt-10 flex items-center justify-center gap-1.5 text-center text-[13px] text-muted-foreground">
+        <span className="size-1.5 rounded-full bg-success" />
+        {integrations.caption}
       </p>
     </Section>
   )

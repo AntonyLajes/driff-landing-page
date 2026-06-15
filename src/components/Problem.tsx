@@ -1,42 +1,24 @@
 import { EyeOff, PenLine, Search, type LucideIcon } from 'lucide-react'
 
+import { useCopy } from '@/i18n'
 import { IconChip, Section, SectionHead } from './primitives'
 
-const PAINS: { icon: LucideIcon; title: string; desc: string }[] = [
-  {
-    icon: PenLine,
-    title: 'Devs perdem tempo escrevendo updates',
-    desc: 'Toda sexta-feira, a mesma novela de montar o "o que eu fiz essa semana" em vez de escrever código.',
-  },
-  {
-    icon: EyeOff,
-    title: 'Líderes e PMs ficam no escuro',
-    desc: 'Commits e PRs não contam a história do que foi realmente entregue, nem do impacto pro negócio.',
-  },
-  {
-    icon: Search,
-    title: 'Retrospectivas viram arqueologia',
-    desc: 'Alguém sempre precisa garimpar o histórico do Git pra lembrar o que mudou na última sprint.',
-  },
-]
+const ICONS: LucideIcon[] = [PenLine, EyeOff, Search]
 
 export function Problem() {
+  const { problem } = useCopy()
   return (
     <Section tone="canvas">
-      <SectionHead
-        eyebrow="O PROBLEMA"
-        title="Times que se movem rápido perdem o controle do que foi feito."
-        subtitle="Quanto mais o time entrega, mais difícil fica saber o que aconteceu — e o custo é invisível."
-      />
+      <SectionHead eyebrow={problem.eyebrow} title={problem.title} subtitle={problem.subtitle} />
       <div className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-3">
-        {PAINS.map((p) => (
+        {problem.cards.map((c, i) => (
           <div
-            key={p.title}
+            key={c.title}
             className="flex flex-col gap-3.5 rounded-card border border-line bg-card p-7"
           >
-            <IconChip icon={p.icon} />
-            <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
-            <p className="text-[15px] leading-relaxed text-muted-foreground">{p.desc}</p>
+            <IconChip icon={ICONS[i]} />
+            <h3 className="text-lg font-bold text-foreground">{c.title}</h3>
+            <p className="text-[15px] leading-relaxed text-muted-foreground">{c.desc}</p>
           </div>
         ))}
       </div>

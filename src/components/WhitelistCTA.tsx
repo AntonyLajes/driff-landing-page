@@ -1,21 +1,21 @@
 import { type FormEvent, useState } from 'react'
 import { ArrowRight, CircleCheck, ShieldCheck } from 'lucide-react'
 
+import { useCopy } from '@/i18n'
+
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
 
 const TEAM_SIZES = ['1–5', '6–15', '16–30', '30+']
-const ROLES = ['Founder / CTO', 'Eng. Lead', 'Product Manager', 'Desenvolvedor', 'Outro']
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 export function WhitelistCTA() {
+  const { whitelist } = useCopy()
   const [status, setStatus] = useState<Status>('idle')
-  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setStatus('submitting')
-    setError(null)
 
     const form = event.currentTarget
     const data = Object.fromEntries(new FormData(form).entries())
@@ -29,9 +29,8 @@ export function WhitelistCTA() {
       if (!res.ok) throw new Error(`Request failed: ${res.status}`)
       setStatus('success')
       form.reset()
-    } catch (err) {
+    } catch {
       setStatus('error')
-      setError(err instanceof Error ? err.message : 'Erro desconhecido')
     }
   }
 
@@ -41,14 +40,13 @@ export function WhitelistCTA() {
         <div className="flex max-w-[680px] flex-col items-center gap-4 text-center">
           <span className="inline-flex items-center gap-2 rounded-pill bg-primary/15 px-3.5 py-1.5 text-[13px] font-semibold text-[#F06A44]">
             <span className="size-1.5 rounded-full bg-primary" />
-            Vagas limitadas · 8 a 15 times
+            {whitelist.badge}
           </span>
           <h2 className="text-balance text-3xl font-bold leading-[1.08] text-[#FAFAFA] sm:text-[44px]">
-            Entre no beta fechado do Driff.
+            {whitelist.title}
           </h2>
           <p className="max-w-[560px] text-pretty text-lg leading-relaxed text-[#A1A1AA]">
-            Acesso gratuito durante o beta, suporte direto com a gente e influência real no produto.
-            Deixe seus dados e entramos em contato.
+            {whitelist.subtitle}
           </p>
         </div>
 
@@ -57,53 +55,57 @@ export function WhitelistCTA() {
             <span className="flex size-14 items-center justify-center rounded-pill bg-success-soft">
               <CircleCheck size={28} className="text-success" />
             </span>
-            <h3 className="text-xl font-bold text-foreground">Você está na lista! 🎉</h3>
-            <p className="text-[15px] text-muted-foreground">
-              Recebemos seus dados. Assim que sua vaga abrir, mandamos um convite no seu e-mail.
-            </p>
+            <h3 className="text-xl font-bold text-foreground">{whitelist.successTitle}</h3>
+            <p className="text-[15px] text-muted-foreground">{whitelist.successDesc}</p>
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
             className="flex w-full max-w-[560px] flex-col gap-[18px] rounded-card bg-card p-8"
           >
-            <Field name="name" label="Seu nome" placeholder="Ex: Antony Lajes" required />
+            <Field name="name" label={whitelist.name} placeholder={whitelist.namePh} required />
             <Field
               name="email"
               type="email"
-              label="E-mail"
-              placeholder="voce@email.com"
+              label={whitelist.email}
+              placeholder={whitelist.emailPh}
               required
             />
-            <Field name="team" label="Time / empresa" placeholder="Nome do seu time" required />
+            <Field name="team" label={whitelist.team} placeholder={whitelist.teamPh} required />
             <div className="flex flex-col gap-[18px] sm:flex-row sm:gap-3.5">
-              <Select name="teamSize" label="Quantidade de devs" options={TEAM_SIZES} required />
-              <Select name="role" label="Seu cargo" options={ROLES} required />
+              <Select
+                name="teamSize"
+                label={whitelist.teamSize}
+                placeholder={whitelist.selectPlaceholder}
+                options={TEAM_SIZES}
+                required
+              />
+              <Select
+                name="role"
+                label={whitelist.role}
+                placeholder={whitelist.selectPlaceholder}
+                options={whitelist.roles}
+                required
+              />
             </div>
-            <Field
-              name="githubOrg"
-              label="Organização no GitHub (opcional)"
-              placeholder="github.com/sua-org"
-            />
+            <Field name="githubOrg" label={whitelist.githubOrg} placeholder={whitelist.githubOrgPh} />
 
             <button
               type="submit"
               disabled={status === 'submitting'}
               className="mt-1 inline-flex items-center justify-center gap-2 rounded-pill bg-primary px-6 py-3.5 text-[15px] font-bold text-on-primary transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {status === 'submitting' ? 'Enviando…' : 'Quero entrar na whitelist'}
+              {status === 'submitting' ? whitelist.submitting : whitelist.submit}
               {status !== 'submitting' && <ArrowRight size={17} />}
             </button>
 
             {status === 'error' && (
-              <p className="text-center text-[13px] text-primary">
-                Não foi possível enviar agora{error ? ` (${error})` : ''}. Tente novamente.
-              </p>
+              <p className="text-center text-[13px] text-primary">{whitelist.error}</p>
             )}
 
             <p className="inline-flex items-center justify-center gap-1.5 text-[13px] text-muted-foreground">
               <ShieldCheck size={14} />
-              Sem spam. Só te avisamos quando sua vaga abrir.
+              {whitelist.microcopy}
             </p>
           </form>
         )}
@@ -142,12 +144,14 @@ function Field({
 function Select({
   name,
   label,
+  placeholder,
   options,
   required,
 }: {
   name: string
   label: string
-  options: string[]
+  placeholder: string
+  options: readonly string[]
   required?: boolean
 }) {
   return (
@@ -160,7 +164,7 @@ function Select({
         className="rounded-input border border-line bg-background px-3.5 py-3 text-sm text-foreground focus:border-primary focus:outline-none"
       >
         <option value="" disabled>
-          Selecione…
+          {placeholder}
         </option>
         {options.map((o) => (
           <option key={o} value={o}>
