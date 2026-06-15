@@ -1,0 +1,349 @@
+@import 'tailwindcss';
+
+/* Dark mode is class-based (`.dark` on <html>). The landing ships light by
+   default; tokens carry dark values so a toggle can be added later. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   Halo Mono design tokens — same palette as the Driff app.
+   Raw values on :root/.dark; @theme inline maps them to Tailwind
+   utilities so bg-card, text-muted, border-line, … are dark-aware.
+   ============================================================ */
+:root {
+  --background: #ffffff;
+  --canvas: #f5f5f6;
+  --card: #ffffff;
+  --foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --line: #e4e4e7;
+  --primary: #e4572e;
+  --on-primary: #ffffff;
+  --success: #16a34a;
+  --ink: #09090b;
+}
+
+.dark {
+  --background: #09090b;
+  --canvas: #0f0f11;
+  --card: #09090b;
+  --foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --line: #27272a;
+  --primary: #f06a44;
+  --on-primary: #ffffff;
+  --success: #22c55e;
+  --ink: #09090b;
+}
+
+:root,
+.dark {
+  --primary-soft: color-mix(in oklab, var(--primary) 12%, transparent);
+  --success-soft: color-mix(in oklab, var(--success) 14%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-canvas: var(--canvas);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-ink: var(--ink);
+
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --radius-input: 10px;
+  --radius-chip: 10px;
+  --radius-card: 20px;
+  --radius-pill: 999px;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply m-0 min-h-dvh bg-background font-sans text-foreground antialiased;
+  }
+  #root {
+    @apply min-h-dvh;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+@layer components {
+  /* Halo Mono floating-card shadow. */
+  .shadow-card {
+    box-shadow: 0 2px 8px #0f0d2e08;
+  }
+  .dark .shadow-card {
+    box-shadow: 0 2px 8px #00000033;
+  }
+  /* Elevated product window in the hero. */
+  .shadow-window {
+    box-shadow: 0 24px 60px -12px #0f0d2e1f;
+  }
+  .dark .shadow-window {
+    box-shadow: 0 24px 60px -12px #00000066;
+  }
+
+  /* Animated metallic sheen on the hero headline (stays in-palette: dark→gray). */
+  .text-shine {
+    background: linear-gradient(
+      110deg,
+      var(--foreground) 0%,
+      var(--foreground) 35%,
+      var(--muted-foreground) 50%,
+      var(--foreground) 65%,
+      var(--foreground) 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shine 7s ease-in-out infinite;
+  }
+
+  /* Animated orange sheen for highlighted headline words. */
+  .text-shine-primary {
+    background: linear-gradient(
+      110deg,
+      var(--primary) 0%,
+      var(--primary) 35%,
+      color-mix(in oklab, var(--primary) 45%, white) 50%,
+      var(--primary) 65%,
+      var(--primary) 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shine 5s ease-in-out infinite;
+  }
+
+  /* Marker-style highlight behind a phrase. */
+  .hl-marker {
+    background: linear-gradient(
+      transparent 58%,
+      color-mix(in oklab, var(--primary) 22%, transparent) 58%
+    );
+    padding: 0 0.1em;
+  }
+
+  /* Flowing connector line (origins → Driff → destinations). */
+  .flow-line {
+    position: relative;
+    overflow: hidden;
+    background: var(--line);
+  }
+  .flow-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 45%;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    animation: flow-x 2.2s linear infinite;
+  }
+
+  /* Pulsing central Driff node in the integrations flow. */
+  .driff-node {
+    animation: driff-pulse 2.6s ease-in-out infinite;
+  }
+
+  /* Gently floating hero constellation tiles. */
+  .float-tile {
+    animation: float-tile 5.5s ease-in-out infinite;
+  }
+
+  /* Logo fade/scale-in when a cycling tile swaps its brand. */
+  .tile-swap {
+    animation: tile-swap 0.5s ease both;
+  }
+
+  /* Dotted connector with an orange dot traveling toward the Driff node. */
+  .dot-line {
+    position: relative;
+    height: 2px;
+    background-image: radial-gradient(circle, var(--line) 1.6px, transparent 1.7px);
+    background-size: 9px 2px;
+    background-repeat: repeat-x;
+  }
+  .dot-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 6px;
+    width: 6px;
+    margin-top: -3px;
+    border-radius: 9999px;
+    background: var(--primary);
+    box-shadow: 0 0 8px 1px color-mix(in oklab, var(--primary) 70%, transparent);
+    animation: flow-dot 2.4s linear infinite;
+  }
+  .dot-line-rev::after {
+    animation-direction: reverse;
+  }
+
+  /* Orange glow halo behind the product window / CTAs. */
+  .glow-primary {
+    box-shadow:
+      0 20px 60px -18px color-mix(in oklab, var(--primary) 55%, transparent),
+      0 0 0 1px var(--line);
+  }
+  .glow-soft-orange {
+    background: radial-gradient(
+      closest-side,
+      color-mix(in oklab, var(--primary) 38%, transparent),
+      transparent
+    );
+  }
+
+  /* Pulsing live dot. */
+  .pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  /* Floating navbar pill enter. */
+  .nav-pill-in {
+    animation: nav-pill-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Scroll-reveal: hidden until .is-visible is toggled by IntersectionObserver. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .text-shine {
+      animation: none;
+    }
+    .pulse-dot,
+    .nav-pill-in {
+      animation: none;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .text-shine-primary,
+    .driff-node,
+    .float-tile,
+    .tile-swap {
+      animation: none;
+    }
+    .flow-line::after,
+    .dot-line::after {
+      animation: none;
+      opacity: 0.6;
+    }
+  }
+}
+
+@keyframes text-shine {
+  0% {
+    background-position: 130% 0;
+  }
+  100% {
+    background-position: -30% 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 60%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+@keyframes nav-pill-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flow-x {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(360%);
+  }
+}
+
+@keyframes driff-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 color-mix(in oklab, var(--primary) 40%, transparent),
+      0 10px 30px -8px color-mix(in oklab, var(--primary) 45%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 14px transparent,
+      0 14px 44px -6px color-mix(in oklab, var(--primary) 60%, transparent);
+  }
+}
+
+@keyframes float-tile {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes tile-swap {
+  from {
+    opacity: 0;
+    transform: scale(0.78);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes flow-dot {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
