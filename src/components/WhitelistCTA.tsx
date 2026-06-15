@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from 'react'
 import { ArrowRight, ChevronDown, CircleCheck, ShieldCheck } from 'lucide-react'
 
+import { analytics } from '@/lib/analytics'
 import { useCopy } from '@/i18n'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
@@ -28,9 +29,11 @@ export function WhitelistCTA() {
       })
       if (!res.ok) throw new Error(`Request failed: ${res.status}`)
       setStatus('success')
+      analytics.waitlistSubmitted(data.teamSize as string, data.role as string)
       form.reset()
     } catch {
       setStatus('error')
+      analytics.waitlistFailed()
     }
   }
 

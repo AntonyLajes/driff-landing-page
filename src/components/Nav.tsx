@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { analytics } from '@/lib/analytics'
 import { useCopy } from '@/i18n'
 import { DriffMark } from './DriffMark'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -62,6 +63,7 @@ export function Nav() {
           <LanguageSwitcher />
           <a
             href="#whitelist"
+            onClick={() => analytics.ctaClicked('nav')}
             className="rounded-pill bg-primary px-[18px] py-2.5 text-sm font-semibold text-on-primary transition-all hover:opacity-90 hover:shadow-[0_8px_24px_-8px_var(--primary)]"
           >
             {copy.nav.cta}

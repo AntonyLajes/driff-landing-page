@@ -1,5 +1,6 @@
 import { SiGithub } from '@icons-pack/react-simple-icons'
 
+import { analytics } from '@/lib/analytics'
 import { useCopy } from '@/i18n'
 import { DriffMark } from './DriffMark'
 
@@ -78,6 +79,7 @@ function FooterColumn({
           <li key={l.label}>
             <a
               href={l.href}
+              onClick={l.accent ? () => analytics.ctaClicked('footer') : undefined}
               className={`text-sm transition-colors ${
                 l.accent
                   ? 'font-semibold text-primary hover:opacity-80'

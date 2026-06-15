@@ -1,3 +1,4 @@
+import { analytics } from '@/lib/analytics'
 import { useCopy } from '@/i18n'
 import { PillButton } from './primitives'
 import { AppPreview } from './AppPreview'
@@ -43,7 +44,7 @@ export function Hero() {
           className="enter mt-2 flex flex-col items-center gap-3 sm:flex-row"
           style={{ animationDelay: '290ms' }}
         >
-          <a href="#whitelist">
+          <a href="#whitelist" onClick={() => analytics.ctaClicked('hero')}>
             <PillButton>{hero.ctaPrimary}</PillButton>
           </a>
           <a href="#how-it-works">

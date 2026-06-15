@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+
+import { analytics, initAnalytics } from './lib/analytics'
 import { BeforeAfter } from './components/BeforeAfter'
 import { Faq } from './components/Faq'
 import { Features } from './components/Features'
@@ -13,6 +16,11 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { WhitelistCTA } from './components/WhitelistCTA'
 
 export default function App() {
+  useEffect(() => {
+    initAnalytics()
+    analytics.pageViewed()
+  }, [])
+
   return (
     <div className="flex min-h-dvh flex-col overflow-x-hidden">
       <ScrollProgress />

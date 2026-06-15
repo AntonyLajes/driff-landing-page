@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Check, Globe } from 'lucide-react'
 
+import { analytics } from '@/lib/analytics'
 import {
   changeLanguage,
   SUPPORTED_LANGUAGES,
@@ -32,6 +33,7 @@ export function LanguageSwitcher() {
 
   const pick = (code: LanguageCode) => {
     changeLanguage(code)
+    analytics.languageChanged(code)
     setOpen(false)
   }
 

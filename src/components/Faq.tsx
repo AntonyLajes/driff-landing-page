@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
 
+import { analytics } from '@/lib/analytics'
 import { useCopy } from '@/i18n'
 import { Section, SectionHead } from './primitives'
 
@@ -18,7 +19,10 @@ export function Faq() {
             <div key={item.q} className="rounded-[14px] border border-line bg-card">
               <button
                 type="button"
-                onClick={() => setOpen(isOpen ? -1 : i)}
+                onClick={() => {
+                  if (!isOpen) analytics.faqOpened(i)
+                  setOpen(isOpen ? -1 : i)
+                }}
                 aria-expanded={isOpen}
                 className="flex w-full items-center justify-between gap-4 p-[22px] text-left"
               >
