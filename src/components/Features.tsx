@@ -8,6 +8,7 @@ import {
 
 import { useCopy } from '@/i18n'
 import { IconChip, Section, SectionHead } from './primitives'
+import { Stagger } from './Stagger'
 
 const STAT_VALUES = [
   { value: '49', delta: '+13' },
@@ -26,7 +27,7 @@ export function Features() {
 
       <div className="mt-12 flex flex-col gap-5">
         {/* Featured card */}
-        <div className="flex flex-col items-center gap-8 rounded-card border border-line bg-card p-8 lg:flex-row lg:gap-9">
+        <div className="card-hover group flex flex-col items-center gap-8 rounded-card border border-line bg-card p-8 lg:flex-row lg:gap-9">
           <div className="flex flex-1 flex-col gap-3.5">
             <IconChip icon={LayoutDashboard} />
             <h3 className="text-[22px] font-bold text-foreground">{features.featuredTitle}</h3>
@@ -51,18 +52,18 @@ export function Features() {
         </div>
 
         {/* Three feature cards */}
-        <div className="grid gap-5 md:grid-cols-3">
+        <Stagger className="grid gap-5 md:grid-cols-3">
           {features.cards.map((f, i) => (
             <div
               key={f.title}
-              className="card-hover flex flex-col gap-3.5 rounded-card border border-line bg-card p-7"
+              className="card-hover group flex h-full flex-col gap-3.5 rounded-card border border-line bg-card p-7"
             >
               <IconChip icon={CARD_ICONS[i]} />
               <h3 className="text-lg font-bold text-foreground">{f.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
             </div>
           ))}
-        </div>
+        </Stagger>
       </div>
     </Section>
   )

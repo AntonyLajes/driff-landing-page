@@ -35,8 +35,17 @@ export function WhitelistCTA() {
   }
 
   return (
-    <section id="whitelist" className="w-full bg-ink">
-      <div className="mx-auto flex w-full max-w-[1140px] flex-col items-center gap-10 px-6 py-24 sm:px-8">
+    <section id="whitelist" className="relative w-full overflow-hidden bg-ink">
+      {/* Ambient orange glows over the black background */}
+      <div
+        aria-hidden
+        className="glow-soft-orange pointer-events-none absolute -left-32 -top-28 h-[440px] w-[560px] opacity-70 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="glow-soft-orange pointer-events-none absolute -bottom-32 -right-28 h-[440px] w-[560px] opacity-60 blur-3xl"
+      />
+      <div className="relative mx-auto flex w-full max-w-[1140px] flex-col items-center gap-10 px-6 py-24 sm:px-8">
         <div className="flex max-w-[680px] flex-col items-center gap-4 text-center">
           <span className="inline-flex items-center gap-2 rounded-pill bg-primary/15 px-3.5 py-1.5 text-[13px] font-semibold text-[#F06A44]">
             <span className="size-1.5 rounded-full bg-primary" />

@@ -1,6 +1,8 @@
 import type { ComponentProps, ReactNode } from 'react'
 import type { LucideIcon } from 'lucide-react'
 
+import { MarkerText } from './MarkerText'
+
 type Tone = 'background' | 'canvas' | 'ink'
 
 const toneClass: Record<Tone, string> = {
@@ -53,8 +55,8 @@ export function SectionHead({
       >
         {eyebrow}
       </span>
-      <h2 className="text-shine text-balance text-3xl font-bold leading-[1.1] text-foreground sm:text-[40px]">
-        {title}
+      <h2 className="text-balance text-3xl font-bold leading-[1.1] text-foreground sm:text-[40px]">
+        <MarkerText>{title}</MarkerText>
       </h2>
       {subtitle ? (
         <p className="max-w-[620px] text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -76,8 +78,14 @@ export function IconChip({
   const box = size === 'sm' ? 'size-[38px] rounded-[9px]' : 'size-11 rounded-chip'
   const glyph = size === 'sm' ? 18 : 21
   return (
-    <span className={`flex shrink-0 items-center justify-center bg-muted ${box}`}>
-      <Icon size={glyph} className="text-foreground" strokeWidth={2} />
+    <span
+      className={`flex shrink-0 items-center justify-center bg-muted transition-colors duration-200 group-hover:bg-primary-soft ${box}`}
+    >
+      <Icon
+        size={glyph}
+        className="text-foreground transition-colors duration-200 group-hover:text-primary"
+        strokeWidth={2}
+      />
     </span>
   )
 }

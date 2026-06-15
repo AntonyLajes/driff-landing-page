@@ -31,10 +31,10 @@ export function HowItWorks() {
       <div className="mt-14 flex flex-col items-stretch gap-2 lg:flex-row lg:items-stretch lg:gap-0">
         {how.steps.map((s, i) => (
           <Fragment key={s.title}>
-            <div className="card-hover flex flex-1 flex-col gap-4 rounded-card border border-line bg-card p-7">
+            <div className="card-hover group flex flex-1 flex-col gap-4 rounded-card border border-line bg-card p-7">
               <div className="flex items-start justify-between">
                 <IconChip icon={STEP_ICONS[i]} />
-                <span className="text-3xl font-bold leading-none text-muted-foreground/25">
+                <span className="text-3xl font-bold leading-none text-muted-foreground/25 transition-colors duration-200 group-hover:text-primary/70">
                   0{i + 1}
                 </span>
               </div>
