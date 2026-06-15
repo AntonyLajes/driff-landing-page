@@ -8,8 +8,16 @@ import {
 } from 'lucide-react'
 
 import { useCopy } from '@/i18n'
+import { BrandIcon, type BrandName } from './BrandIcon'
 
 const ROW_ICONS: LucideIcon[] = [GitPullRequest, GitCommitHorizontal, Tag]
+
+// Destination each summary was delivered to (showcases multi-destination).
+const ROW_DESTINATIONS: { brand: BrandName; name: string }[] = [
+  { brand: 'notion', name: 'Notion' },
+  { brand: 'slack', name: 'Slack' },
+  { brand: 'teams', name: 'Teams' },
+]
 
 export function AppPreview() {
   const { preview } = useCopy()
@@ -59,6 +67,7 @@ export function AppPreview() {
 
         {preview.rows.map((row, i) => {
           const Icon = ROW_ICONS[i]
+          const dest = ROW_DESTINATIONS[i]
           return (
             <div
               key={row.title}
@@ -76,8 +85,9 @@ export function AppPreview() {
               <div className="flex shrink-0 flex-col items-end gap-1.5">
                 <span className="text-xs font-medium text-muted-foreground">{row.time}</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <CircleCheck size={13} className="text-success" />
-                  <span className="text-xs font-medium text-muted-foreground">{preview.notion}</span>
+                  <CircleCheck size={12} className="text-success" />
+                  <BrandIcon name={dest.brand} size={13} />
+                  <span className="text-xs font-medium text-muted-foreground">{dest.name}</span>
                 </span>
               </div>
             </div>

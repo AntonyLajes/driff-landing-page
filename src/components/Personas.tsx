@@ -9,7 +9,7 @@ const ICONS: LucideIcon[] = [Rocket, ClipboardList, Code]
 export function Personas() {
   const { personas } = useCopy()
   return (
-    <Section id="para-quem" tone="canvas">
+    <Section id="who-its-for" tone="canvas">
       <SectionHead
         eyebrow={personas.eyebrow}
         title={personas.title}

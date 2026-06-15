@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { GitMerge } from 'lucide-react'
 
 import { useCopy } from '@/i18n'
+import { DriffMark } from './DriffMark'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
-const HREFS = ['#como-funciona', '#recursos', '#integracoes', '#faq']
+const HREFS = ['#how-it-works', '#features', '#integrations', '#faq']
 
 export function Nav() {
   const copy = useCopy()
@@ -39,9 +39,9 @@ export function Nav() {
             : 'w-full max-w-[1140px] border border-line/0 px-6 py-4 sm:px-8'
         }`}
       >
-        <a href="#topo" className="flex items-center gap-2.5">
+        <a href="#top" className="flex items-center gap-2.5">
           <span className="flex size-[30px] items-center justify-center rounded-lg bg-primary">
-            <GitMerge size={18} className="text-on-primary" />
+            <DriffMark size={19} className="text-on-primary" />
           </span>
           <span className="text-xl font-bold text-foreground">driff</span>
         </a>

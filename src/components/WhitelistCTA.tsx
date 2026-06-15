@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from 'react'
-import { ArrowRight, CircleCheck, ShieldCheck } from 'lucide-react'
+import { ArrowRight, ChevronDown, CircleCheck, ShieldCheck } from 'lucide-react'
 
 import { useCopy } from '@/i18n'
 
@@ -166,21 +166,27 @@ function Select({
   return (
     <label className="flex flex-1 flex-col gap-1.5">
       <span className="text-[13px] font-semibold text-foreground">{label}</span>
-      <select
-        name={name}
-        required={required}
-        defaultValue=""
-        className="rounded-input border border-line bg-background px-3.5 py-3 text-sm text-foreground focus:border-primary focus:outline-none"
-      >
-        <option value="" disabled>
-          {placeholder}
-        </option>
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
+      <div className="relative">
+        <select
+          name={name}
+          required={required}
+          defaultValue=""
+          className="w-full appearance-none rounded-input border border-line bg-background px-3.5 py-3 pr-10 text-sm text-foreground focus:border-primary focus:outline-none"
+        >
+          <option value="" disabled>
+            {placeholder}
           </option>
-        ))}
-      </select>
+          {options.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+        </select>
+        <ChevronDown
+          size={16}
+          className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground"
+        />
+      </div>
     </label>
   )
 }

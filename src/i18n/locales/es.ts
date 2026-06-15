@@ -212,5 +212,10 @@ export const es: Resources = {
   },
   footer: {
     tagline: 'Seguimiento automático del progreso para equipos de desarrollo.',
+    product: 'Producto',
+    legal: 'Legal',
+    privacy: 'Privacidad',
+    terms: 'Términos',
+    rights: 'Todos los derechos reservados.',
   },
 }

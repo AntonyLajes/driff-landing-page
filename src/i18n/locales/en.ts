@@ -210,6 +210,11 @@ export const en = {
   },
   footer: {
     tagline: 'Automatic progress tracking for dev teams.',
+    product: 'Product',
+    legal: 'Legal',
+    privacy: 'Privacy',
+    terms: 'Terms',
+    rights: 'All rights reserved.',
   },
 }
 

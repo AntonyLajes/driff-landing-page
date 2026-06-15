@@ -212,5 +212,10 @@ export const pt: Resources = {
   },
   footer: {
     tagline: 'Gerenciamento automático de progresso para times de dev.',
+    product: 'Produto',
+    legal: 'Jurídico',
+    privacy: 'Privacidade',
+    terms: 'Termos',
+    rights: 'Todos os direitos reservados.',
   },
 }

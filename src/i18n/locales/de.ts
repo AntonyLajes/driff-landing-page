@@ -212,5 +212,10 @@ export const de: Resources = {
   },
   footer: {
     tagline: 'Automatisches Fortschritts-Tracking für Dev-Teams.',
+    product: 'Produkt',
+    legal: 'Rechtliches',
+    privacy: 'Datenschutz',
+    terms: 'AGB',
+    rights: 'Alle Rechte vorbehalten.',
   },
 }

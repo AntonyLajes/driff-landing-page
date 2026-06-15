@@ -21,7 +21,7 @@ function Connector() {
 export function HowItWorks() {
   const { how } = useCopy()
   return (
-    <Section id="como-funciona" tone="background">
+    <Section id="how-it-works" tone="background">
       <SectionHead
         eyebrow={how.eyebrow}
         eyebrowTone="primary"

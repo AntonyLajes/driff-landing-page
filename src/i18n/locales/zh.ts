@@ -209,5 +209,10 @@ export const zh: Resources = {
   },
   footer: {
     tagline: '面向开发团队的自动进展追踪。',
+    product: '产品',
+    legal: '法律',
+    privacy: '隐私政策',
+    terms: '条款',
+    rights: '保留所有权利。',
   },
 }

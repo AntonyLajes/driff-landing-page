@@ -7,7 +7,7 @@ import { MarkerText } from './MarkerText'
 export function Hero() {
   const { hero } = useCopy()
   return (
-    <section id="topo" className="w-full bg-background">
+    <section id="top" className="w-full bg-background">
       <div className="mx-auto flex w-full max-w-[1140px] flex-col items-center gap-6 px-6 pb-12 pt-24 text-center sm:px-8 sm:pb-16 sm:pt-28">
         <div className="enter w-full" style={{ animationDelay: '0ms' }}>
           <HeroFlow />
@@ -46,7 +46,7 @@ export function Hero() {
           <a href="#whitelist">
             <PillButton>{hero.ctaPrimary}</PillButton>
           </a>
-          <a href="#como-funciona">
+          <a href="#how-it-works">
             <PillButton variant="outline">{hero.ctaSecondary}</PillButton>
           </a>
         </div>

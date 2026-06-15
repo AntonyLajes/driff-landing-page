@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { GitMerge } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
 
 import { BrandIcon, type BrandName } from './BrandIcon'
+import { DriffMark } from './DriffMark'
 
 type Brand = { github?: boolean; brand?: BrandName }
 
@@ -107,7 +107,7 @@ export function HeroFlow() {
 
       {/* Driff node */}
       <div className="driff-node flex size-[76px] shrink-0 items-center justify-center rounded-3xl bg-primary">
-        <GitMerge size={34} className="text-on-primary" />
+        <DriffMark size={40} className="text-on-primary" />
       </div>
 
       <div className="dot-line w-16 shrink-0 lg:w-24" />

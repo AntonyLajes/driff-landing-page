@@ -1,8 +1,9 @@
-import { ArrowRight, ChevronDown, GitMerge } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
 
 import { useCopy } from '@/i18n'
 import { BrandIcon, type BrandName } from './BrandIcon'
+import { DriffMark } from './DriffMark'
 import { Section, SectionHead } from './primitives'
 
 type Node = { name: string; brand?: BrandName; github?: boolean; live?: boolean }
@@ -89,7 +90,7 @@ function Connector() {
 export function Integrations() {
   const { integrations } = useCopy()
   return (
-    <Section id="integracoes" tone="background">
+    <Section id="integrations" tone="background">
       <SectionHead
         eyebrow={integrations.eyebrow}
         eyebrowTone="primary"
@@ -105,7 +106,7 @@ export function Integrations() {
         {/* Central Driff node */}
         <div className="flex flex-col items-center gap-3 px-2 py-2">
           <span className="driff-node flex size-16 items-center justify-center rounded-2xl bg-primary">
-            <GitMerge size={30} className="text-on-primary" />
+            <DriffMark size={34} className="text-on-primary" />
           </span>
           <span className="text-sm font-bold text-foreground">Driff</span>
         </div>

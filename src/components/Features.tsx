@@ -22,7 +22,7 @@ const CARD_ICONS: LucideIcon[] = [GitPullRequest, GitCommitHorizontal, Tag]
 export function Features() {
   const { features } = useCopy()
   return (
-    <Section id="recursos" tone="canvas">
+    <Section id="features" tone="canvas">
       <SectionHead eyebrow={features.eyebrow} title={features.title} />
 
       <div className="mt-12 flex flex-col gap-5">
@@ -42,8 +42,10 @@ export function Features() {
                 className="flex flex-col gap-1.5 rounded-xl border border-line bg-canvas p-4"
               >
                 <span className="text-xs font-medium text-muted-foreground">{s.label}</span>
-                <span className="flex items-end gap-2">
-                  <span className="text-2xl font-bold text-foreground">{STAT_VALUES[i].value}</span>
+                <span className="flex items-center gap-2">
+                  <span className="text-2xl font-bold leading-none text-foreground">
+                    {STAT_VALUES[i].value}
+                  </span>
                   <span className="text-xs font-semibold text-success">{STAT_VALUES[i].delta}</span>
                 </span>
               </div>
