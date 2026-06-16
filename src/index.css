@@ -208,6 +208,14 @@
     animation: typing-dot 1.2s ease-in-out infinite;
   }
 
+  /* Scrollable, but no visible scrollbar (chat replay inside a fixed window). */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* On-load entrance: hero elements rise in (staggered via inline delay). */
   .enter {
     animation: enter-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;

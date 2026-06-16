@@ -61,8 +61,8 @@ function Card({ card }: { card: Card }) {
 function MessageRow({ message }: { message: Message }) {
   if (message.role === 'user') {
     return (
-      <div className="msg-in flex flex-col items-end gap-1 self-end">
-        <div className="max-w-[85%] rounded-2xl rounded-br-md bg-primary px-4 py-2.5 text-sm font-medium text-on-primary sm:max-w-[58%]">
+      <div className="msg-in flex w-full flex-col items-end gap-1">
+        <div className="max-w-[85%] break-words rounded-2xl rounded-br-md bg-primary px-4 py-2.5 text-sm font-medium text-on-primary sm:max-w-[62%]">
           {message.text}
         </div>
         <span className="flex items-center gap-1 pr-1 text-[11px] text-muted-foreground">
@@ -191,7 +191,7 @@ export function AskDriff() {
   }, [started])
 
   return (
-    <Section id="ask" tone="canvas">
+    <Section id="ask" tone="background" className="border-t border-line">
       <SectionHead
         eyebrow={ask.eyebrow}
         eyebrowTone="primary"
@@ -203,7 +203,10 @@ export function AskDriff() {
         ref={ref}
         className="shadow-window mt-12 flex flex-col overflow-hidden rounded-card border border-line bg-card"
       >
-        <div ref={scrollRef} className="h-[400px] overflow-y-auto p-5 sm:h-[460px] sm:p-8">
+        <div
+          ref={scrollRef}
+          className="no-scrollbar h-[400px] overflow-y-auto p-5 sm:h-[460px] sm:p-8"
+        >
           <div className="flex min-h-full flex-col justify-end gap-4">
             {messages.map((m, i) => (
               <MessageRow key={i} message={m} />
