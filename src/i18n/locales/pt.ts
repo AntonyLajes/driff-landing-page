@@ -132,6 +132,21 @@ export const pt: Resources = {
     reportMeta: '12 mudanças · 4 PRs · 2 releases',
     generating: "Gerando documento…",
   },
+  changelog: {
+    eyebrow: 'CHANGELOG DE VERSÕES',
+    title: 'Cada release vira um changelog.',
+    subtitle:
+      'Bumpou a versão e o Driff escreve um changelog limpo e agrupado — pronto pra compartilhar com o time ou com seus clientes.',
+    version: 'Versão 1.3.0',
+    date: 'Lançada em 12 de abr',
+    autoTag: 'Gerado automaticamente',
+    publishedTo: 'Publicado em',
+    groups: [
+      { label: 'Novidades', items: ['Novo fluxo de onboarding', 'Entrega de resumos no Slack'] },
+      { label: 'Melhorias', items: ['Processamento de PR mais rápido', 'Estatísticas de diff mais claras'] },
+      { label: 'Correções', items: ['Crash no ETA das paradas', 'Guard de retry no webhook'] },
+    ],
+  },
   integrations: {
     eyebrow: 'INTEGRAÇÕES',
     title: 'Conecte suas origens. Entregue onde o time já trabalha.',

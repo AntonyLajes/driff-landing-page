@@ -132,6 +132,21 @@ export const de: Resources = {
     reportMeta: '12 Änderungen · 4 PRs · 2 Releases',
     generating: "Dokument wird erstellt…",
   },
+  changelog: {
+    eyebrow: 'VERSIONS-CHANGELOGS',
+    title: 'Jedes Release wird zu einem Changelog.',
+    subtitle:
+      'Erhöhe die Version und Driff schreibt ein sauberes, gruppiertes Changelog — bereit zum Teilen mit deinem Team oder deinen Kunden.',
+    version: 'Version 1.3.0',
+    date: 'Veröffentlicht am 12. Apr',
+    autoTag: 'Automatisch erstellt',
+    publishedTo: 'Veröffentlicht in',
+    groups: [
+      { label: 'Neu', items: ['Neues Onboarding', 'Slack-Zustellung für Zusammenfassungen'] },
+      { label: 'Verbesserungen', items: ['Schnellere PR-Verarbeitung', 'Klarere Diff-Statistiken'] },
+      { label: 'Fixes', items: ['Crash bei Tankstopp-ETA', 'Webhook-Retry-Guard'] },
+    ],
+  },
   integrations: {
     eyebrow: 'INTEGRATIONEN',
     title: 'Verbinde deine Quellen. Liefere, wo das Team schon arbeitet.',

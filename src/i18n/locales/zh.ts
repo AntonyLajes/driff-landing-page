@@ -130,6 +130,20 @@ export const zh: Resources = {
     reportMeta: '12 项变更 · 4 个 PR · 2 个版本',
     generating: "正在生成文档…",
   },
+  changelog: {
+    eyebrow: '版本 CHANGELOG',
+    title: '每次发布都变成一份 changelog。',
+    subtitle: '提升版本号，Driff 就会写出一份清晰、分组的 changelog——可直接分享给团队或客户。',
+    version: '版本 1.3.0',
+    date: '4 月 12 日发布',
+    autoTag: '自动生成',
+    publishedTo: '已发布到',
+    groups: [
+      { label: '新功能', items: ['全新的引导流程', '支持将摘要发送到 Slack'] },
+      { label: '改进', items: ['更快的 PR 处理', '更清晰的 diff 统计'] },
+      { label: '修复', items: ['修复加油站停靠的 ETA 崩溃', 'webhook 重试保护'] },
+    ],
+  },
   integrations: {
     eyebrow: '集成',
     title: '连接你的来源，发往团队已经在用的地方。',

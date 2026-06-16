@@ -132,6 +132,21 @@ export const es: Resources = {
     reportMeta: '12 cambios · 4 PRs · 2 releases',
     generating: "Generando documento…",
   },
+  changelog: {
+    eyebrow: 'CHANGELOGS DE VERSIONES',
+    title: 'Cada release se convierte en un changelog.',
+    subtitle:
+      'Subes la versión y Driff escribe un changelog limpio y agrupado — listo para compartir con tu equipo o tus clientes.',
+    version: 'Versión 1.3.0',
+    date: 'Publicada el 12 abr',
+    autoTag: 'Generado automáticamente',
+    publishedTo: 'Publicado en',
+    groups: [
+      { label: 'Novedades', items: ['Nuevo flujo de onboarding', 'Entrega de resúmenes en Slack'] },
+      { label: 'Mejoras', items: ['Procesamiento de PR más rápido', 'Estadísticas de diff más claras'] },
+      { label: 'Correcciones', items: ['Crash del ETA en paradas', 'Guard de reintento en webhook'] },
+    ],
+  },
   integrations: {
     eyebrow: 'INTEGRACIONES',
     title: 'Conecta tus fuentes. Entrega donde el equipo ya trabaja.',

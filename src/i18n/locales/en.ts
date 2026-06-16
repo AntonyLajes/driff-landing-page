@@ -130,6 +130,21 @@ export const en = {
     reportMeta: '12 changes · 4 PRs · 2 releases',
     generating: "Generating document…",
   },
+  changelog: {
+    eyebrow: 'VERSION CHANGELOGS',
+    title: 'Every release, turned into a changelog.',
+    subtitle:
+      'Bump the version and Driff writes a clean, grouped changelog — ready to share with your team or your customers.',
+    version: 'Version 1.3.0',
+    date: 'Released Apr 12',
+    autoTag: 'Auto-generated',
+    publishedTo: 'Published to',
+    groups: [
+      { label: 'New', items: ['Redesigned onboarding flow', 'Slack delivery for summaries'] },
+      { label: 'Improvements', items: ['Faster PR processing', 'Clearer diff stats'] },
+      { label: 'Fixes', items: ['Fuel-stop ETA crash', 'Webhook retry guard'] },
+    ],
+  },
   integrations: {
     eyebrow: 'INTEGRATIONS',
     title: 'Connect your sources. Deliver where the team already works.',

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { analytics, initAnalytics } from './lib/analytics'
 import { AskDriff } from './components/AskDriff'
 import { BeforeAfter } from './components/BeforeAfter'
+import { Changelog } from './components/Changelog'
 import { Faq } from './components/Faq'
 import { Features } from './components/Features'
 import { Footer } from './components/Footer'
@@ -42,6 +43,9 @@ export default function App() {
         </Reveal>
         <Reveal>
           <Integrations />
+        </Reveal>
+        <Reveal>
+          <Changelog />
         </Reveal>
         <Reveal>
           <BeforeAfter />
