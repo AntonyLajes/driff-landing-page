@@ -1,4 +1,4 @@
-import { ArrowUp, Globe, Tag } from 'lucide-react'
+import { ArrowUp, Download, FileText, Globe, Tag } from 'lucide-react'
 
 import { useCopy } from '@/i18n'
 import { DriffMark } from './DriffMark'
@@ -26,12 +26,29 @@ function ResultCard({ title, meta }: { title: string; meta: string }) {
   )
 }
 
+function FileResultCard({ title, meta }: { title: string; meta: string }) {
+  return (
+    <div className="mt-1 flex items-center gap-3 rounded-xl border border-line bg-canvas px-3.5 py-2.5">
+      <span className="flex size-9 shrink-0 items-center justify-center rounded-[9px] bg-primary-soft">
+        <FileText size={17} className="text-primary" />
+      </span>
+      <div className="flex min-w-0 flex-1 flex-col">
+        <span className="truncate text-sm font-semibold text-foreground">{title}</span>
+        {meta && <span className="truncate text-xs text-muted-foreground">{meta}</span>}
+      </div>
+      <Download size={16} className="shrink-0 text-muted-foreground" />
+    </div>
+  )
+}
+
 function DriffBubble({
   text,
   result,
+  file,
 }: {
   text: string
   result?: { title: string; meta: string }
+  file?: { title: string; meta: string }
 }) {
   return (
     <div className="flex max-w-[88%] items-start gap-2.5 self-start sm:max-w-[62%]">
@@ -41,6 +58,7 @@ function DriffBubble({
       <div className="flex flex-col gap-1 rounded-2xl rounded-tl-md border border-line bg-background px-4 py-3">
         <p className="text-sm leading-relaxed text-foreground">{text}</p>
         {result && <ResultCard title={result.title} meta={result.meta} />}
+        {file && <FileResultCard title={file.title} meta={file.meta} />}
       </div>
     </div>
   )
@@ -66,6 +84,8 @@ export function AskDriff() {
           <DriffBubble text={ask.a1} result={result} />
           <UserBubble text={ask.q2} />
           <DriffBubble text={ask.a2} />
+          <UserBubble text={ask.q3} />
+          <DriffBubble text={ask.a3} file={{ title: ask.reportTitle, meta: ask.reportMeta }} />
         </div>
 
         {/* Suggestion chips + rich input (decorative showcase). */}

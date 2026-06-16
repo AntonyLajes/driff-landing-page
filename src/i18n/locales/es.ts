@@ -126,6 +126,10 @@ export const es: Resources = {
     a2: 'Tres cambios: un arreglo del ETA de las paradas de combustible, un refactor de precios y un guard de reintento en el webhook. Sin breaking changes.',
     suggest1: 'Resumir la última semana',
     suggest2: '¿Qué salió en la v1.3.0?',
+    q3: 'Genera un doc sobre los principales cambios de precios de los últimos 3 meses.',
+    a3: 'Listo — reuní todos los cambios de precios de los últimos 3 meses en un documento, listo para descargar.',
+    reportTitle: 'Cambios de precios — últimos 3 meses.docx',
+    reportMeta: '12 cambios · 4 PRs · 2 releases',
   },
   integrations: {
     eyebrow: 'INTEGRACIONES',

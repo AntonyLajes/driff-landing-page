@@ -126,6 +126,10 @@ export const de: Resources = {
     a2: 'Drei Änderungen: ein Fix für die Tankstopp-ETA, ein Pricing-Refactor und ein Webhook-Retry-Guard. Keine Breaking Changes.',
     suggest1: 'Letzte Woche zusammenfassen',
     suggest2: 'Was kam in v1.3.0?',
+    q3: 'Erstelle ein Dokument zu den wichtigsten Preisänderungen der letzten 3 Monate.',
+    a3: 'Fertig — ich habe alle preisbezogenen Änderungen der letzten 3 Monate in einem Dokument zusammengefasst, bereit zum Download.',
+    reportTitle: 'Preisänderungen — letzte 3 Monate.docx',
+    reportMeta: '12 Änderungen · 4 PRs · 2 Releases',
   },
   integrations: {
     eyebrow: 'INTEGRATIONEN',

@@ -124,6 +124,10 @@ export const en = {
     a2: 'Three changes: a fix to the fuel-stop ETA, a pricing refactor, and a webhook retry guard. No breaking changes.',
     suggest1: 'Summarize last week',
     suggest2: 'What shipped in v1.3.0?',
+    q3: 'Generate a doc on the main pricing changes from the last 3 months.',
+    a3: 'Done — I pulled every pricing-related change from the last 3 months into a document, ready to download.',
+    reportTitle: 'Pricing changes — last 3 months.docx',
+    reportMeta: '12 changes · 4 PRs · 2 releases',
   },
   integrations: {
     eyebrow: 'INTEGRATIONS',

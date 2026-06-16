@@ -126,6 +126,10 @@ export const pt: Resources = {
     a2: 'Três mudanças: correção do ETA das paradas de combustível, um refactor de precificação e um guard de retry no webhook. Sem breaking changes.',
     suggest1: 'Resumir a última semana',
     suggest2: 'O que saiu na v1.3.0?',
+    q3: 'Gere um doc sobre as principais mudanças de precificação dos últimos 3 meses.',
+    a3: 'Pronto — reuni todas as mudanças relacionadas a precificação dos últimos 3 meses num documento, pronto pra baixar.',
+    reportTitle: 'Mudanças de precificação — últimos 3 meses.docx',
+    reportMeta: '12 mudanças · 4 PRs · 2 releases',
   },
   integrations: {
     eyebrow: 'INTEGRAÇÕES',

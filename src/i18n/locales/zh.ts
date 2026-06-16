@@ -124,6 +124,10 @@ export const zh: Resources = {
     a2: '三处变化：修复加油站停靠的 ETA、重构计价逻辑，以及为 webhook 增加重试保护。没有破坏性变更。',
     suggest1: '总结上周',
     suggest2: 'v1.3.0 发布了什么？',
+    q3: '生成一份关于过去 3 个月主要计价变更的文档。',
+    a3: '完成——我已把过去 3 个月所有与计价相关的变更整理成一份文档，可直接下载。',
+    reportTitle: '计价变更 — 近 3 个月.docx',
+    reportMeta: '12 项变更 · 4 个 PR · 2 个版本',
   },
   integrations: {
     eyebrow: '集成',
