@@ -2,7 +2,7 @@ import { type FormEvent, useState } from 'react'
 import { ArrowRight, ChevronDown, CircleCheck, ShieldCheck } from 'lucide-react'
 
 import { analytics } from '@/lib/analytics'
-import { useCopy } from '@/i18n'
+import { useActiveLanguage, useCopy } from '@/i18n'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
 
@@ -12,6 +12,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 export function WhitelistCTA() {
   const { whitelist } = useCopy()
+  const lang = useActiveLanguage()
   const [status, setStatus] = useState<Status>('idle')
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -25,7 +26,7 @@ export function WhitelistCTA() {
       const res = await fetch(`${API_BASE}/api/whitelist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, locale: lang }),
       })
       if (!res.ok) throw new Error(`Request failed: ${res.status}`)
       setStatus('success')
