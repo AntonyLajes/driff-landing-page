@@ -18,8 +18,9 @@ export async function initAnalytics(): Promise<void> {
   mp.init(TOKEN, {
     api_host: EU ? 'https://api-eu.mixpanel.com' : 'https://api.mixpanel.com',
     persistence: 'localStorage',
+    // Explicit events only (no autocapture). IP-based geolocation stays ON so
+    // Mixpanel derives approximate location ($city / $region / mp_country_code).
     track_pageview: false,
-    ip: false,
   })
   ready = true
   for (const [event, props] of queue) mp.track(event, props)
