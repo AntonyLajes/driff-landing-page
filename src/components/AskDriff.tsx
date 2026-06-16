@@ -103,10 +103,18 @@ export function AskDriff() {
   ]
 
   const ref = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const [started, setStarted] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [inputText, setInputText] = useState('')
   const [indicator, setIndicator] = useState<null | 'typing' | 'generating'>(null)
+
+  // Keep the latest message in view inside the fixed-height chat (never resizes
+  // the page, so scrolling past the section doesn't cause layout shifts).
+  useEffect(() => {
+    const el = scrollRef.current
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
+  }, [messages, indicator])
 
   useEffect(() => {
     const el = ref.current
@@ -195,12 +203,13 @@ export function AskDriff() {
         ref={ref}
         className="shadow-window mt-12 flex flex-col overflow-hidden rounded-card border border-line bg-card"
       >
-        <div className="flex min-h-[300px] flex-col gap-4 p-5 sm:min-h-[380px] sm:p-8">
-          {messages.map((m, i) => (
-            <MessageRow key={i} message={m} />
-          ))}
+        <div ref={scrollRef} className="h-[400px] overflow-y-auto p-5 sm:h-[460px] sm:p-8">
+          <div className="flex min-h-full flex-col justify-end gap-4">
+            {messages.map((m, i) => (
+              <MessageRow key={i} message={m} />
+            ))}
 
-          {indicator === 'typing' && (
+            {indicator === 'typing' && (
             <div className="msg-in flex items-center gap-2.5 self-start">
               <span className="flex size-8 shrink-0 items-center justify-center rounded-pill bg-primary">
                 <DriffMark size={18} className="text-on-primary" />
@@ -228,6 +237,7 @@ export function AskDriff() {
               </div>
             </div>
           )}
+          </div>
         </div>
 
         {/* Suggestion chips + rich input (decorative showcase). */}
@@ -243,16 +253,13 @@ export function AskDriff() {
             ))}
           </div>
           <div className="flex flex-col gap-3 rounded-2xl border border-line bg-background p-3.5">
-            <span className="min-h-[20px] text-sm text-foreground">
-              {inputText ? (
-                <>
-                  {inputText}
-                  <span className="ml-0.5 inline-block h-4 w-px translate-y-0.5 bg-primary" />
-                </>
-              ) : (
-                <span className="text-muted-foreground">{ask.inputPlaceholder}</span>
-              )}
-            </span>
+            <input
+              readOnly
+              tabIndex={-1}
+              value={inputText}
+              placeholder={ask.inputPlaceholder}
+              className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+            />
             <div className="flex items-center justify-between">
               <Globe size={18} className="text-muted-foreground" />
               <span
