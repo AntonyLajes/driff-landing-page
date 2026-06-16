@@ -124,6 +124,8 @@ export const pt: Resources = {
     a1sources: 'v1.3.0 · PR #142 · PR #147',
     q2: 'O que mudou em pagamentos no último mês?',
     a2: 'Três mudanças: correção do ETA das paradas de combustível, um refactor de precificação e um guard de retry no webhook. Sem breaking changes.',
+    suggest1: 'Resumir a última semana',
+    suggest2: 'O que saiu na v1.3.0?',
   },
   integrations: {
     eyebrow: 'INTEGRAÇÕES',

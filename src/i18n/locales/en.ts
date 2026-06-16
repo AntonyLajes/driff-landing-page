@@ -122,6 +122,8 @@ export const en = {
     a1sources: 'v1.3.0 · PR #142 · PR #147',
     q2: 'What changed in payments last month?',
     a2: 'Three changes: a fix to the fuel-stop ETA, a pricing refactor, and a webhook retry guard. No breaking changes.',
+    suggest1: 'Summarize last week',
+    suggest2: 'What shipped in v1.3.0?',
   },
   integrations: {
     eyebrow: 'INTEGRATIONS',

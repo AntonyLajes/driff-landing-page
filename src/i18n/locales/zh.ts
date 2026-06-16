@@ -122,6 +122,8 @@ export const zh: Resources = {
     a1sources: 'v1.3.0 · PR #142 · PR #147',
     q2: '上个月支付方面有什么变化？',
     a2: '三处变化：修复加油站停靠的 ETA、重构计价逻辑，以及为 webhook 增加重试保护。没有破坏性变更。',
+    suggest1: '总结上周',
+    suggest2: 'v1.3.0 发布了什么？',
   },
   integrations: {
     eyebrow: '集成',
