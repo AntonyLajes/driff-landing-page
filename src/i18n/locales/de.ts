@@ -16,7 +16,7 @@ export const de: Resources = {
     titleMarker: 'von selbst dokumentiert.',
     titlePost: '',
     subtitle:
-      'Jeder PR, Push und jedes Release wird zu einer klaren Zusammenfassung — geschrieben in deiner Sprache und dort zugestellt, wo dein Team schon arbeitet.',
+      'Jeder PR, Push und jedes Release wird zu einer klaren Zusammenfassung — und du kannst Driff alles über das fragen, was dein Team geliefert hat.',
     ctaPrimary: 'Auf die Beta-Warteliste',
     ctaSecondary: 'So funktioniert es',
     microcopy: 'Kostenlos in der Beta · Setup in ~5 Min · Nur auf Einladung',
@@ -100,18 +100,30 @@ export const de: Resources = {
     ],
     cards: [
       {
-        title: 'Pull-Request-Zusammenfassungen',
-        desc: 'Jeder gemergte PR wird zu einer professionellen Zusammenfassung mit Diff-Statistiken. Reviewer und PMs verstehen es in Sekunden.',
+        title: 'Ask Driff',
+        desc: 'Frag die gesamte Historie deines Teams in natürlicher Sprache — „wann wurde Feature X veröffentlicht?“ — und erhalte eine Antwort mit Quellen.',
       },
       {
-        title: 'Zusammenfassungen direkter Pushes',
-        desc: 'Hotfix oder Single-Branch-Team? Fasst direkte Pushes mit Deduplizierung zusammen — nie dasselbe zweimal.',
+        title: 'Automatische Zusammenfassungen',
+        desc: 'Jeder gemergte PR, direkte Push und jedes Release wird zu einer klaren, professionellen Zusammenfassung — mit Diff-Statistiken.',
       },
       {
-        title: 'Release-Zusammenfassungen',
-        desc: 'Version erhöht? Erzeugt automatisch ein Changelog, bereit zum Teilen mit Team oder Kunden.',
+        title: 'Versions-Changelogs',
+        desc: 'Version erhöht? Driff erzeugt ein teilfertiges Changelog für dein Team oder deine Kunden.',
       },
     ],
+  },
+  ask: {
+    eyebrow: 'ASK DRIFF',
+    title: 'Frag alles über das, was dein Team geliefert hat.',
+    subtitle:
+      'Driff merkt sich jeden PR, Push und jedes Release. Frag in natürlicher Sprache und erhalte eine Antwort — mit der genauen Version und den PRs.',
+    inputPlaceholder: 'Frag Driff alles…',
+    q1: 'Wann haben wir das neue Onboarding veröffentlicht?',
+    a1: 'Das Onboarding-Redesign kam in v1.3.0. Es landete in PR #142 und #147 und entfernte den manuellen Workspace-Schritt.',
+    a1sources: 'v1.3.0 · PR #142 · PR #147',
+    q2: 'Was hat sich letzten Monat bei Zahlungen geändert?',
+    a2: 'Drei Änderungen: ein Fix für die Tankstopp-ETA, ein Pricing-Refactor und ein Webhook-Retry-Guard. Keine Breaking Changes.',
   },
   integrations: {
     eyebrow: 'INTEGRATIONEN',

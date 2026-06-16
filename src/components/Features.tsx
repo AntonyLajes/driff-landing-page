@@ -1,10 +1,4 @@
-import {
-  GitCommitHorizontal,
-  GitPullRequest,
-  LayoutDashboard,
-  Tag,
-  type LucideIcon,
-} from 'lucide-react'
+import { FileText, LayoutDashboard, Sparkles, Tag, type LucideIcon } from 'lucide-react'
 
 import { useCopy } from '@/i18n'
 import { IconChip, Section, SectionHead } from './primitives'
@@ -17,7 +11,7 @@ const STAT_VALUES = [
   { value: '12.5h', delta: '+3.2h' },
 ]
 
-const CARD_ICONS: LucideIcon[] = [GitPullRequest, GitCommitHorizontal, Tag]
+const CARD_ICONS: LucideIcon[] = [Sparkles, FileText, Tag]
 
 export function Features() {
   const { features } = useCopy()

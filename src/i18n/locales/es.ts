@@ -16,7 +16,7 @@ export const es: Resources = {
     titleMarker: 'escrito solo.',
     titlePost: '',
     subtitle:
-      'Cada PR, push y release se convierte en un resumen claro — escrito en tu idioma y entregado donde tu equipo ya trabaja.',
+      'Cada PR, push y release se convierte en un resumen claro — y puedes preguntarle a Driff lo que sea sobre lo que tu equipo entregó.',
     ctaPrimary: 'Unirme a la lista del Beta',
     ctaSecondary: 'Ver cómo funciona',
     microcopy: 'Gratis en la beta · Configuración en ~5 min · Solo por invitación',
@@ -100,18 +100,30 @@ export const es: Resources = {
     ],
     cards: [
       {
-        title: 'Resúmenes de Pull Requests',
-        desc: 'Cada PR fusionado se vuelve un resumen profesional, con estadísticas del diff. Reviewers y PMs lo entienden en segundos.',
+        title: 'Ask Driff',
+        desc: 'Consulta todo el historial de tu equipo en lenguaje natural — "¿cuándo se lanzó la función X?" — y recibe una respuesta con las fuentes.',
       },
       {
-        title: 'Resúmenes de pushes directos',
-        desc: '¿Hotfix o equipo en una sola rama? Resume pushes directos con deduplicación — nunca lo mismo dos veces.',
+        title: 'Resúmenes automáticos',
+        desc: 'Cada PR fusionado, push directo y release se vuelve un resumen claro y profesional — con estadísticas del diff.',
       },
       {
-        title: 'Resúmenes de releases',
-        desc: '¿Subiste la versión? Genera un changelog automático, listo para compartir con el equipo o los clientes.',
+        title: 'Changelogs de versiones',
+        desc: '¿Subiste la versión? Driff genera un changelog listo para compartir con el equipo o los clientes.',
       },
     ],
+  },
+  ask: {
+    eyebrow: 'ASK DRIFF',
+    title: 'Pregunta lo que sea sobre lo que tu equipo entregó.',
+    subtitle:
+      'Driff recuerda cada PR, push y release. Pregunta en lenguaje natural y recibe la respuesta — con la versión y los PRs exactos.',
+    inputPlaceholder: 'Pregúntale lo que sea a Driff…',
+    q1: '¿Cuándo lanzamos el nuevo onboarding?',
+    a1: 'El rediseño del onboarding salió en la v1.3.0. Llegó en los PR #142 y #147 y eliminó el paso manual de crear el workspace.',
+    a1sources: 'v1.3.0 · PR #142 · PR #147',
+    q2: '¿Qué cambió en pagos el último mes?',
+    a2: 'Tres cambios: un arreglo del ETA de las paradas de combustible, un refactor de precios y un guard de reintento en el webhook. Sin breaking changes.',
   },
   integrations: {
     eyebrow: 'INTEGRACIONES',

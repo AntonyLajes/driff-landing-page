@@ -16,7 +16,7 @@ export const zh: Resources = {
     titleMarker: '自动记录。',
     titlePost: '',
     subtitle:
-      '每一个 PR、push 和发布都会变成清晰的摘要——用你的语言书写，并送达团队已经在用的工具里。',
+      '每一个 PR、push 和发布都会变成清晰的摘要——而且你可以就团队交付的任何内容向 Driff 提问。',
     ctaPrimary: '加入内测候补名单',
     ctaSecondary: '看看如何运作',
     microcopy: '内测免费 · 约 5 分钟配置 · 仅限邀请',
@@ -99,18 +99,29 @@ export const zh: Resources = {
     ],
     cards: [
       {
-        title: 'Pull Request 摘要',
-        desc: '每个合并的 PR 都变成专业摘要，附带 diff 统计。评审者和 PM 几秒就能看懂。',
+        title: 'Ask Driff',
+        desc: '用自然语言查询团队的全部历史——“X 功能是什么时候上线的？”——并获得带出处的答案。',
       },
       {
-        title: '直接 Push 摘要',
-        desc: '热修复或单分支团队？汇总直接 push 并去重——同一件事绝不重复两次。',
+        title: '自动摘要',
+        desc: '每个合并的 PR、直接 push 和发布都变成清晰、专业的摘要——附带 diff 统计。',
       },
       {
-        title: '发布摘要',
-        desc: '提升版本号了？自动生成 changelog，可直接分享给团队或客户。',
+        title: '版本 Changelog',
+        desc: '提升版本号了？Driff 自动生成可直接分享给团队或客户的 changelog。',
       },
     ],
+  },
+  ask: {
+    eyebrow: 'ASK DRIFF',
+    title: '关于团队交付了什么，尽管问。',
+    subtitle: 'Driff 记得每一个 PR、push 和发布。用自然语言提问，立刻获得答案——附带确切的版本和 PR。',
+    inputPlaceholder: '向 Driff 提任何问题…',
+    q1: '我们什么时候上线了新的引导流程？',
+    a1: '引导流程的改版在 v1.3.0 上线，来自 PR #142 和 #147，并移除了手动创建工作区的步骤。',
+    a1sources: 'v1.3.0 · PR #142 · PR #147',
+    q2: '上个月支付方面有什么变化？',
+    a2: '三处变化：修复加油站停靠的 ETA、重构计价逻辑，以及为 webhook 增加重试保护。没有破坏性变更。',
   },
   integrations: {
     eyebrow: '集成',

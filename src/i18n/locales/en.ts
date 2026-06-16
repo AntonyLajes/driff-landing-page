@@ -14,7 +14,7 @@ export const en = {
     titleMarker: 'written on its own.',
     titlePost: '',
     subtitle:
-      'Every PR, push and release becomes a clear summary — written in plain language and delivered where your team already works.',
+      'Every PR, push and release becomes a clear summary — and you can ask Driff anything about what your team shipped.',
     ctaPrimary: 'Join the beta waitlist',
     ctaSecondary: 'See how it works',
     microcopy: 'Free during beta · ~5-min setup · Invite-only',
@@ -98,18 +98,30 @@ export const en = {
     ],
     cards: [
       {
-        title: 'Pull Request summaries',
-        desc: 'Every merged PR becomes a professional summary, with diff stats. Reviewers and PMs get it in seconds.',
+        title: 'Ask Driff',
+        desc: 'Query your team\'s entire history in plain language — "when did feature X ship?" — and get a sourced answer.',
       },
       {
-        title: 'Direct push summaries',
-        desc: 'Hotfix or single-branch team? Summarizes direct pushes with dedup — never the same thing twice.',
+        title: 'Automatic summaries',
+        desc: 'Every merged PR, direct push and release becomes a clear, professional summary — with diff stats.',
       },
       {
-        title: 'Release summaries',
-        desc: 'Bumped the version? Generates an automatic changelog, ready to share with the team or customers.',
+        title: 'Version changelogs',
+        desc: 'Bumped the version? Driff generates a ready-to-share changelog for your team or customers.',
       },
     ],
+  },
+  ask: {
+    eyebrow: 'ASK DRIFF',
+    title: 'Ask anything about what your team shipped.',
+    subtitle:
+      'Driff remembers every PR, push and release. Ask in plain language and get an answer — with the exact version and PRs.',
+    inputPlaceholder: 'Ask Driff anything…',
+    q1: 'When did we ship the new onboarding?',
+    a1: 'The onboarding redesign shipped in v1.3.0. It landed across PR #142 and #147 and removed the manual workspace step.',
+    a1sources: 'v1.3.0 · PR #142 · PR #147',
+    q2: 'What changed in payments last month?',
+    a2: 'Three changes: a fix to the fuel-stop ETA, a pricing refactor, and a webhook retry guard. No breaking changes.',
   },
   integrations: {
     eyebrow: 'INTEGRATIONS',

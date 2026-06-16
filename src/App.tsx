@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 
 import { analytics, initAnalytics } from './lib/analytics'
+import { AskDriff } from './components/AskDriff'
 import { BeforeAfter } from './components/BeforeAfter'
 import { Faq } from './components/Faq'
 import { Features } from './components/Features'
@@ -27,6 +28,9 @@ export default function App() {
       <Nav />
       <main className="flex-1">
         <Hero />
+        <Reveal>
+          <AskDriff />
+        </Reveal>
         <Reveal>
           <Problem />
         </Reveal>

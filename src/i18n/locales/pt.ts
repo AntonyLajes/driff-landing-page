@@ -16,7 +16,7 @@ export const pt: Resources = {
     titleMarker: 'escrito sozinho.',
     titlePost: '',
     subtitle:
-      'Cada PR, push e release vira um resumo claro — escrito em português e entregue onde seu time já trabalha.',
+      'Cada PR, push e release vira um resumo claro — e você pode perguntar qualquer coisa ao Driff sobre o que o time entregou.',
     ctaPrimary: 'Entrar na whitelist do Beta',
     ctaSecondary: 'Ver como funciona',
     microcopy: 'Grátis no beta · Setup em ~5 min · Entrada por convite',
@@ -100,18 +100,30 @@ export const pt: Resources = {
     ],
     cards: [
       {
-        title: 'Resumo de Pull Requests',
-        desc: 'Todo PR mergeado vira um resumo profissional, com as estatísticas do diff. Reviewer e PM entendem em segundos.',
+        title: 'Ask Driff',
+        desc: 'Pergunte sobre todo o histórico do time em linguagem natural — "quando a feature X foi lançada?" — e receba a resposta com as fontes.',
       },
       {
-        title: 'Resumo de Pushes diretos',
-        desc: 'Hotfix ou time numa branch só? Resume pushes diretos com deduplicação — nunca a mesma coisa duas vezes.',
+        title: 'Resumos automáticos',
+        desc: 'Todo PR mergeado, push direto e release vira um resumo claro e profissional — com as estatísticas do diff.',
       },
       {
-        title: 'Resumo de Releases',
-        desc: 'Bumpou a versão? Gera um changelog automático, pronto pra compartilhar com o time ou com clientes.',
+        title: 'Changelog de versões',
+        desc: 'Bumpou a versão? O Driff gera um changelog pronto pra compartilhar com o time ou com clientes.',
       },
     ],
+  },
+  ask: {
+    eyebrow: 'ASK DRIFF',
+    title: 'Pergunte qualquer coisa sobre o que seu time entregou.',
+    subtitle:
+      'O Driff lembra de cada PR, push e release. Pergunte em linguagem natural e receba a resposta — com a versão e os PRs exatos.',
+    inputPlaceholder: 'Pergunte qualquer coisa ao Driff…',
+    q1: 'Quando lançamos o novo onboarding?',
+    a1: 'O redesenho do onboarding saiu na v1.3.0. Veio nos PRs #142 e #147 e removeu o passo manual de criar workspace.',
+    a1sources: 'v1.3.0 · PR #142 · PR #147',
+    q2: 'O que mudou em pagamentos no último mês?',
+    a2: 'Três mudanças: correção do ETA das paradas de combustível, um refactor de precificação e um guard de retry no webhook. Sem breaking changes.',
   },
   integrations: {
     eyebrow: 'INTEGRAÇÕES',
