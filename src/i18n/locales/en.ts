@@ -128,6 +128,7 @@ export const en = {
     a3: 'Done — I pulled every pricing-related change from the last 3 months into a document, ready to download.',
     reportTitle: 'Pricing changes — last 3 months.docx',
     reportMeta: '12 changes · 4 PRs · 2 releases',
+    generating: "Generating document…",
   },
   integrations: {
     eyebrow: 'INTEGRATIONS',

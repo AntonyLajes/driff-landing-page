@@ -130,6 +130,7 @@ export const pt: Resources = {
     a3: 'Pronto — reuni todas as mudanças relacionadas a precificação dos últimos 3 meses num documento, pronto pra baixar.',
     reportTitle: 'Mudanças de precificação — últimos 3 meses.docx',
     reportMeta: '12 mudanças · 4 PRs · 2 releases',
+    generating: "Gerando documento…",
   },
   integrations: {
     eyebrow: 'INTEGRAÇÕES',

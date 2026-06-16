@@ -128,6 +128,7 @@ export const zh: Resources = {
     a3: '完成——我已把过去 3 个月所有与计价相关的变更整理成一份文档，可直接下载。',
     reportTitle: '计价变更 — 近 3 个月.docx',
     reportMeta: '12 项变更 · 4 个 PR · 2 个版本',
+    generating: "正在生成文档…",
   },
   integrations: {
     eyebrow: '集成',

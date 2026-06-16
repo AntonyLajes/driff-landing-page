@@ -130,6 +130,7 @@ export const es: Resources = {
     a3: 'Listo — reuní todos los cambios de precios de los últimos 3 meses en un documento, listo para descargar.',
     reportTitle: 'Cambios de precios — últimos 3 meses.docx',
     reportMeta: '12 cambios · 4 PRs · 2 releases',
+    generating: "Generando documento…",
   },
   integrations: {
     eyebrow: 'INTEGRACIONES',

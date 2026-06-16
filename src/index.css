@@ -198,6 +198,16 @@
     animation: check-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   }
 
+  /* Chat message rises/fades in as the Ask Driff conversation plays. */
+  .msg-in {
+    animation: msg-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Typing-indicator dots. */
+  .typing-dot {
+    animation: typing-dot 1.2s ease-in-out infinite;
+  }
+
   /* On-load entrance: hero elements rise in (staggered via inline delay). */
   .enter {
     animation: enter-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -319,6 +329,8 @@
     .float-tile,
     .tile-swap,
     .check-pop,
+    .msg-in,
+    .typing-dot,
     .enter {
       animation: none;
     }
@@ -421,6 +433,30 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
   }
 }
 

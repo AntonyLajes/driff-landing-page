@@ -130,6 +130,7 @@ export const de: Resources = {
     a3: 'Fertig — ich habe alle preisbezogenen Änderungen der letzten 3 Monate in einem Dokument zusammengefasst, bereit zum Download.',
     reportTitle: 'Preisänderungen — letzte 3 Monate.docx',
     reportMeta: '12 Änderungen · 4 PRs · 2 Releases',
+    generating: "Dokument wird erstellt…",
   },
   integrations: {
     eyebrow: 'INTEGRATIONEN',

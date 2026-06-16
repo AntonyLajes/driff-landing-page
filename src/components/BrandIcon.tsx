@@ -9,6 +9,7 @@ import notionSrc from '@/assets/brand/notion.svg'
 import slackSrc from '@/assets/brand/slack.svg'
 import telegramSrc from '@/assets/brand/telegram.svg'
 import whatsappSrc from '@/assets/brand/whatsapp.svg'
+import wordSrc from '@/assets/brand/word.svg'
 
 /** Original full-color brand logos (assets in src/assets/brand/).
  *  GitHub is monochrome and comes from @icons-pack/react-simple-icons. */
@@ -24,6 +25,7 @@ const BRAND_SRC = {
   slack: slackSrc,
   telegram: telegramSrc,
   whatsapp: whatsappSrc,
+  word: wordSrc,
 } as const
 
 export type BrandName = keyof typeof BRAND_SRC
