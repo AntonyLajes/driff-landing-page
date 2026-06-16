@@ -36,6 +36,7 @@ export function track(event: string, props?: Props): void {
 export const analytics = {
   pageViewed: () => track('landing_viewed', { lang: document.documentElement.lang }),
   ctaClicked: (location: 'nav' | 'hero' | 'footer') => track('cta_clicked', { location }),
+  waitlistStarted: () => track('waitlist_started'),
   languageChanged: (lang: string) => track('language_changed', { lang }),
   faqOpened: (index: number) => track('faq_opened', { index }),
   waitlistSubmitted: (teamSize?: string, role?: string) =>

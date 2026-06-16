@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react'
+import { type FormEvent, useRef, useState } from 'react'
 import { ArrowRight, Check, ChevronDown, Loader2, ShieldCheck } from 'lucide-react'
 
 import { analytics } from '@/lib/analytics'
@@ -14,6 +14,13 @@ export function WhitelistCTA() {
   const { whitelist } = useCopy()
   const lang = useActiveLanguage()
   const [status, setStatus] = useState<Status>('idle')
+  const startedRef = useRef(false)
+
+  function handleFirstFocus() {
+    if (startedRef.current) return
+    startedRef.current = true
+    analytics.waitlistStarted()
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -65,6 +72,7 @@ export function WhitelistCTA() {
 
         <form
           onSubmit={handleSubmit}
+          onFocus={handleFirstFocus}
           className="flex w-full max-w-[560px] flex-col gap-[18px] rounded-card bg-card p-8"
         >
           {status === 'success' ? (
