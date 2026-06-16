@@ -139,9 +139,27 @@ export const zh: Resources = {
     autoTag: '自动生成',
     publishedTo: '已发布到',
     groups: [
-      { label: '新功能', items: ['全新的引导流程', '支持将摘要发送到 Slack'] },
-      { label: '改进', items: ['更快的 PR 处理', '更清晰的 diff 统计'] },
-      { label: '修复', items: ['修复加油站停靠的 ETA 崩溃', 'webhook 重试保护'] },
+      {
+        label: '新功能',
+        items: [
+          '全新引导流程——连接仓库后 5 分钟内即可拿到第一份摘要',
+          'Slack 投递：将 PR、push 和发布摘要直接发到频道',
+        ],
+      },
+      {
+        label: '改进',
+        items: [
+          '大型 diff 的 PR 摘要处理速度提升约 40%',
+          '每份摘要都附带 diff 统计（文件数与 ± 行数）',
+        ],
+      },
+      {
+        label: '修复',
+        items: [
+          '修复了停靠点没有设定时间时 ETA 计算崩溃的问题',
+          'webhook 在临时错误时会安全重试——不再丢失事件',
+        ],
+      },
     ],
   },
   integrations: {

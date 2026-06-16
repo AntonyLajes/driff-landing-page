@@ -142,9 +142,27 @@ export const de: Resources = {
     autoTag: 'Automatisch erstellt',
     publishedTo: 'Veröffentlicht in',
     groups: [
-      { label: 'Neu', items: ['Neues Onboarding', 'Slack-Zustellung für Zusammenfassungen'] },
-      { label: 'Verbesserungen', items: ['Schnellere PR-Verarbeitung', 'Klarere Diff-Statistiken'] },
-      { label: 'Fixes', items: ['Crash bei Tankstopp-ETA', 'Webhook-Retry-Guard'] },
+      {
+        label: 'Neu',
+        items: [
+          'Neues Onboarding — Repo verbinden und in unter 5 Minuten die erste Zusammenfassung erhalten',
+          'Slack-Zustellung: PR-, Push- und Release-Zusammenfassungen direkt in einen Channel posten',
+        ],
+      },
+      {
+        label: 'Verbesserungen',
+        items: [
+          'PR-Zusammenfassungen bei großen Diffs ~40% schneller',
+          'Diff-Statistiken (Dateien und ±-Zeilen) in jeder Zusammenfassung',
+        ],
+      },
+      {
+        label: 'Fixes',
+        items: [
+          'Crash bei der ETA-Berechnung behoben, wenn ein Tankstopp keine feste Zeit hatte',
+          'Webhooks wiederholen bei vorübergehenden Fehlern sicher — keine verlorenen Events mehr',
+        ],
+      },
     ],
   },
   integrations: {

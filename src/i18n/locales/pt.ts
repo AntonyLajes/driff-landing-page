@@ -142,9 +142,27 @@ export const pt: Resources = {
     autoTag: 'Gerado automaticamente',
     publishedTo: 'Publicado em',
     groups: [
-      { label: 'Novidades', items: ['Novo fluxo de onboarding', 'Entrega de resumos no Slack'] },
-      { label: 'Melhorias', items: ['Processamento de PR mais rápido', 'Estatísticas de diff mais claras'] },
-      { label: 'Correções', items: ['Crash no ETA das paradas', 'Guard de retry no webhook'] },
+      {
+        label: 'Novidades',
+        items: [
+          'Novo onboarding — conecte um repo e receba o primeiro resumo em menos de 5 minutos',
+          'Entrega no Slack: publique resumos de PR, push e release direto num canal',
+        ],
+      },
+      {
+        label: 'Melhorias',
+        items: [
+          'Resumos de PR ~40% mais rápidos em diffs grandes',
+          'Estatísticas de diff (arquivos e linhas ±) em todo resumo',
+        ],
+      },
+      {
+        label: 'Correções',
+        items: [
+          'Corrigido um crash no cálculo do ETA quando a parada não tinha horário',
+          'Webhooks agora fazem retry seguro em erros transitórios — sem eventos perdidos',
+        ],
+      },
     ],
   },
   integrations: {

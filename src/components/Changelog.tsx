@@ -1,3 +1,4 @@
+import { type CSSProperties, useEffect, useRef, useState } from 'react'
 import { Bug, CircleCheck, Sparkles, Tag, Zap, type LucideIcon } from 'lucide-react'
 
 import { useCopy } from '@/i18n'
@@ -8,6 +9,28 @@ const GROUP_ICONS: LucideIcon[] = [Sparkles, Zap, Bug]
 
 export function Changelog() {
   const { changelog } = useCopy()
+  const ref = useRef<HTMLDivElement>(null)
+  const [revealed, setRevealed] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setRevealed(true)
+            observer.disconnect()
+          }
+        }
+      },
+      { threshold: 0.25 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  let idx = 0
 
   return (
     <Section id="changelog" tone="canvas">
@@ -42,13 +65,20 @@ export function Changelog() {
             </div>
           </div>
 
-          {/* Grouped changes */}
-          <div className="flex flex-1 flex-col gap-6 p-6 sm:p-8">
+          {/* Grouped changes — items reveal in sequence on scroll into view. */}
+          <div
+            ref={ref}
+            className={`flex flex-1 flex-col gap-6 p-6 sm:p-8 ${revealed ? 'reveal-in' : ''}`}
+          >
             {changelog.groups.map((group, i) => {
               const Icon = GROUP_ICONS[i]
+              const headerIndex = idx++
               return (
                 <div key={group.label} className="flex flex-col gap-2.5">
-                  <div className="flex items-center gap-2">
+                  <div
+                    className="reveal-item flex items-center gap-2"
+                    style={{ '--reveal-index': headerIndex } as CSSProperties}
+                  >
                     <span className="flex size-6 items-center justify-center rounded-md bg-muted">
                       <Icon size={13} className="text-foreground" />
                     </span>
@@ -57,12 +87,19 @@ export function Changelog() {
                     </span>
                   </div>
                   <ul className="flex flex-col gap-1.5 pl-1">
-                    {group.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-foreground">
-                        <span className="mt-[7px] size-1.5 shrink-0 rounded-full bg-primary" />
-                        {item}
-                      </li>
-                    ))}
+                    {group.items.map((item) => {
+                      const itemIndex = idx++
+                      return (
+                        <li
+                          key={item}
+                          className="reveal-item flex items-start gap-2 text-sm text-foreground"
+                          style={{ '--reveal-index': itemIndex } as CSSProperties}
+                        >
+                          <span className="mt-[7px] size-1.5 shrink-0 rounded-full bg-primary" />
+                          {item}
+                        </li>
+                      )
+                    })}
                   </ul>
                 </div>
               )

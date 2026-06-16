@@ -140,9 +140,27 @@ export const en = {
     autoTag: 'Auto-generated',
     publishedTo: 'Published to',
     groups: [
-      { label: 'New', items: ['Redesigned onboarding flow', 'Slack delivery for summaries'] },
-      { label: 'Improvements', items: ['Faster PR processing', 'Clearer diff stats'] },
-      { label: 'Fixes', items: ['Fuel-stop ETA crash', 'Webhook retry guard'] },
+      {
+        label: 'New',
+        items: [
+          'Redesigned onboarding — connect a repo and get your first summary in under 5 minutes',
+          'Slack delivery: post PR, push and release summaries straight to a channel',
+        ],
+      },
+      {
+        label: 'Improvements',
+        items: [
+          'PR summaries now process ~40% faster on large diffs',
+          'Diff stats (files changed and ± lines) shown on every summary',
+        ],
+      },
+      {
+        label: 'Fixes',
+        items: [
+          'Fixed a crash in the ETA calculation when a fuel stop had no set time',
+          'Webhooks now retry safely on transient errors — no more dropped events',
+        ],
+      },
     ],
   },
   integrations: {
