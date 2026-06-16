@@ -16,10 +16,7 @@ export function Footer() {
     { label: nav.integrations, href: '#integrations' },
     { label: nav.faq, href: '#faq' },
   ]
-  const legalLinks = [
-    { label: footer.privacy, href: '#' },
-    { label: footer.terms, href: '#' },
-  ]
+  const legalLinks = [{ label: footer.privacy, href: '/privacy.html' }]
 
   return (
     <footer className="w-full bg-ink">

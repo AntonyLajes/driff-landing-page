@@ -181,6 +181,8 @@ export const en = {
       'We got your details. As soon as your spot opens, we’ll send an invite to your email.',
     error: "Couldn't send right now. Please try again.",
     microcopy: 'No spam. We only reach out when your spot opens.',
+    consentPre: 'By joining, you agree to our',
+    consentLink: 'Privacy Policy',
   },
   faq: {
     eyebrow: 'FREQUENTLY ASKED',

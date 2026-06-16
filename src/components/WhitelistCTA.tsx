@@ -119,6 +119,18 @@ export function WhitelistCTA() {
               <ShieldCheck size={14} />
               {whitelist.microcopy}
             </p>
+            <p className="text-center text-[12px] text-muted-foreground">
+              {whitelist.consentPre}{' '}
+              <a
+                href="/privacy.html"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-foreground underline underline-offset-2 hover:text-primary"
+              >
+                {whitelist.consentLink}
+              </a>
+              .
+            </p>
           </form>
         )}
       </div>

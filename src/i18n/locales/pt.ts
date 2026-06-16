@@ -183,6 +183,8 @@ export const pt: Resources = {
       'Recebemos seus dados. Assim que sua vaga abrir, mandamos um convite no seu e-mail.',
     error: 'Não foi possível enviar agora. Tente novamente.',
     microcopy: 'Sem spam. Só te avisamos quando sua vaga abrir.',
+    consentPre: 'Ao entrar, você concorda com a nossa',
+    consentLink: 'Política de Privacidade',
   },
   faq: {
     eyebrow: 'PERGUNTAS FREQUENTES',

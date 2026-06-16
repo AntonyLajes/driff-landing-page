@@ -183,6 +183,8 @@ export const es: Resources = {
       'Recibimos tus datos. En cuanto se abra tu plaza, te enviamos una invitación a tu email.',
     error: 'No se pudo enviar ahora. Inténtalo de nuevo.',
     microcopy: 'Sin spam. Solo te avisamos cuando se abra tu plaza.',
+    consentPre: 'Al unirte, aceptas nuestra',
+    consentLink: 'Política de Privacidad',
   },
   faq: {
     eyebrow: 'PREGUNTAS FRECUENTES',

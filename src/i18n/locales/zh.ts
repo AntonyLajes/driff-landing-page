@@ -180,6 +180,8 @@ export const zh: Resources = {
     successDesc: '我们已收到你的信息。一旦名额开放，就会发邀请到你的邮箱。',
     error: '暂时无法提交，请重试。',
     microcopy: '不发垃圾邮件。只在名额开放时联系你。',
+    consentPre: '加入即表示你同意我们的',
+    consentLink: '隐私政策',
   },
   faq: {
     eyebrow: '常见问题',

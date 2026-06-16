@@ -183,6 +183,8 @@ export const de: Resources = {
       'Wir haben deine Daten. Sobald dein Platz frei wird, schicken wir dir eine Einladung per E-Mail.',
     error: 'Konnte gerade nicht gesendet werden. Bitte versuch es erneut.',
     microcopy: 'Kein Spam. Wir melden uns nur, wenn dein Platz frei wird.',
+    consentPre: 'Mit dem Beitritt akzeptierst du unsere',
+    consentLink: 'Datenschutzerklärung',
   },
   faq: {
     eyebrow: 'HÄUFIGE FRAGEN',
