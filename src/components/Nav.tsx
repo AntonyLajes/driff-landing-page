@@ -97,30 +97,37 @@ export function Nav() {
           </button>
         </div>
 
-        {menuOpen && (
-          <div className="absolute inset-x-0 top-full mt-2 flex flex-col gap-1 rounded-card border border-line bg-background p-3 shadow-card md:hidden">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-input px-3 py-2.5 text-[15px] font-medium text-foreground transition-colors hover:bg-muted"
-              >
-                {l.label}
-              </a>
-            ))}
+        <div
+          aria-hidden={!menuOpen}
+          className={`absolute inset-x-0 top-full mt-2 flex origin-top flex-col gap-1 rounded-card border border-line bg-background p-3 shadow-card transition-all duration-200 ease-out motion-reduce:transition-none md:hidden ${
+            menuOpen
+              ? 'pointer-events-auto translate-y-0 scale-100 opacity-100'
+              : 'pointer-events-none -translate-y-1 scale-[0.98] opacity-0'
+          }`}
+        >
+          {links.map((l) => (
             <a
-              href="#whitelist"
-              onClick={() => {
-                analytics.ctaClicked('nav')
-                setMenuOpen(false)
-              }}
-              className="mt-1 rounded-pill bg-primary px-4 py-2.5 text-center text-[15px] font-semibold text-on-primary"
+              key={l.href}
+              href={l.href}
+              tabIndex={menuOpen ? 0 : -1}
+              onClick={() => setMenuOpen(false)}
+              className="rounded-input px-3 py-2.5 text-[15px] font-medium text-foreground transition-colors hover:bg-muted"
             >
-              {copy.nav.cta}
+              {l.label}
             </a>
-          </div>
-        )}
+          ))}
+          <a
+            href="#whitelist"
+            tabIndex={menuOpen ? 0 : -1}
+            onClick={() => {
+              analytics.ctaClicked('nav')
+              setMenuOpen(false)
+            }}
+            className="mt-1 rounded-pill bg-primary px-4 py-2.5 text-center text-[15px] font-semibold text-on-primary"
+          >
+            {copy.nav.cta}
+          </a>
+        </div>
       </nav>
     </header>
   )
