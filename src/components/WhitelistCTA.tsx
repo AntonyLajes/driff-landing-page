@@ -84,6 +84,15 @@ export function WhitelistCTA() {
             </div>
           ) : (
             <>
+              {/* Honeypot: hidden from humans; bots fill it and get silently dropped. */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
+              />
               <Field name="name" label={whitelist.name} placeholder={whitelist.namePh} required />
               <Field
                 name="email"
