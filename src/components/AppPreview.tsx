@@ -34,7 +34,7 @@ export function AppPreview() {
         </div>
         <div className="flex items-center gap-1.5 rounded-pill bg-muted px-4 py-1.5">
           <Lock size={12} className="text-muted-foreground" />
-          <span className="text-xs font-medium text-muted-foreground">app.driff.dev/resumos</span>
+          <span className="text-xs font-medium text-muted-foreground">app.driff.dev/resumes</span>
         </div>
         <span className="w-16" />
       </div>
