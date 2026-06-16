@@ -22,7 +22,7 @@ export function BeforeAfter() {
           </span>
           <div className="flex flex-col gap-2 rounded-xl bg-[#09090B] p-4">
             <code className="font-mono text-[13px] leading-relaxed text-[#E4E4E7]">
-              fix: handle null ETA on fuel stops + refactor pricing calc
+              fix: streak reset at tz boundary + refactor reminder scheduler
             </code>
             <span className="font-mono text-xs text-[#71717A]">{beforeAfter.commitStat}</span>
           </div>
