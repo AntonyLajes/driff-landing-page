@@ -193,6 +193,11 @@
     animation: tile-swap 0.5s ease both;
   }
 
+  /* Check mark pops in when the waitlist submit succeeds. */
+  .check-pop {
+    animation: check-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
   /* On-load entrance: hero elements rise in (staggered via inline delay). */
   .enter {
     animation: enter-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -313,6 +318,7 @@
     .driff-node,
     .float-tile,
     .tile-swap,
+    .check-pop,
     .enter {
       animation: none;
     }
@@ -400,6 +406,17 @@
   from {
     opacity: 0;
     transform: scale(0.78);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes check-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
   }
   to {
     opacity: 1;

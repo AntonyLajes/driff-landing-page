@@ -176,9 +176,10 @@ export const en = {
     roles: ['Founder / CTO', 'Eng. Lead', 'Product Manager', 'Developer', 'Other'],
     submit: 'I want in on the waitlist',
     submitting: 'Sending…',
-    successTitle: "You're on the list! 🎉",
+    successButton: "You're in!",
+    successTitle: 'Welcome aboard — thank you! 🧡',
     successDesc:
-      'We got your details. As soon as your spot opens, we’ll send an invite to your email.',
+      "We review every team by hand and we'll reach out within 10 days. Your confirmation email is already on its way — keep an eye on your inbox.",
     error: "Couldn't send right now. Please try again.",
     microcopy: 'No spam. We only reach out when your spot opens.',
     consentPre: 'By joining, you agree to our',

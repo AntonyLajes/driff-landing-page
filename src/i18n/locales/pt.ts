@@ -178,9 +178,10 @@ export const pt: Resources = {
     roles: ['Founder / CTO', 'Eng. Lead', 'Product Manager', 'Desenvolvedor', 'Outro'],
     submit: 'Quero entrar na whitelist',
     submitting: 'Enviando…',
-    successTitle: 'Você está na lista! 🎉',
+    successButton: 'Você entrou!',
+    successTitle: 'Bem-vindo a bordo — obrigado! 🧡',
     successDesc:
-      'Recebemos seus dados. Assim que sua vaga abrir, mandamos um convite no seu e-mail.',
+      'A gente avalia cada time na mão e entra em contato em até 10 dias. Seu e-mail de confirmação já está a caminho — fica de olho na caixa de entrada.',
     error: 'Não foi possível enviar agora. Tente novamente.',
     microcopy: 'Sem spam. Só te avisamos quando sua vaga abrir.',
     consentPre: 'Ao entrar, você concorda com a nossa',

@@ -178,9 +178,10 @@ export const de: Resources = {
     roles: ['Gründer / CTO', 'Eng. Lead', 'Product Manager', 'Entwickler', 'Andere'],
     submit: 'Ich will auf die Warteliste',
     submitting: 'Wird gesendet…',
-    successTitle: 'Du bist auf der Liste! 🎉',
+    successButton: 'Du bist dabei!',
+    successTitle: 'Willkommen an Bord — danke! 🧡',
     successDesc:
-      'Wir haben deine Daten. Sobald dein Platz frei wird, schicken wir dir eine Einladung per E-Mail.',
+      'Wir prüfen jedes Team persönlich und melden uns innerhalb von 10 Tagen. Deine Bestätigungs-E-Mail ist schon unterwegs — schau in dein Postfach.',
     error: 'Konnte gerade nicht gesendet werden. Bitte versuch es erneut.',
     microcopy: 'Kein Spam. Wir melden uns nur, wenn dein Platz frei wird.',
     consentPre: 'Mit dem Beitritt akzeptierst du unsere',

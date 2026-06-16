@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from 'react'
-import { ArrowRight, ChevronDown, CircleCheck, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Loader2, ShieldCheck } from 'lucide-react'
 
 import { analytics } from '@/lib/analytics'
 import { useActiveLanguage, useCopy } from '@/i18n'
@@ -63,77 +63,106 @@ export function WhitelistCTA() {
           </p>
         </div>
 
-        {status === 'success' ? (
-          <div className="flex w-full max-w-[560px] flex-col items-center gap-3 rounded-card bg-card p-10 text-center">
-            <span className="flex size-14 items-center justify-center rounded-pill bg-success-soft">
-              <CircleCheck size={28} className="text-success" />
-            </span>
-            <h3 className="text-xl font-bold text-foreground">{whitelist.successTitle}</h3>
-            <p className="text-[15px] text-muted-foreground">{whitelist.successDesc}</p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="flex w-full max-w-[560px] flex-col gap-[18px] rounded-card bg-card p-8"
-          >
-            <Field name="name" label={whitelist.name} placeholder={whitelist.namePh} required />
-            <Field
-              name="email"
-              type="email"
-              label={whitelist.email}
-              placeholder={whitelist.emailPh}
-              required
-            />
-            <Field name="team" label={whitelist.team} placeholder={whitelist.teamPh} required />
-            <div className="flex flex-col gap-[18px] sm:flex-row sm:gap-3.5">
-              <Select
-                name="teamSize"
-                label={whitelist.teamSize}
-                placeholder={whitelist.selectPlaceholder}
-                options={TEAM_SIZES}
-                required
-              />
-              <Select
-                name="role"
-                label={whitelist.role}
-                placeholder={whitelist.selectPlaceholder}
-                options={whitelist.roles}
-                required
-              />
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full max-w-[560px] flex-col gap-[18px] rounded-card bg-card p-8"
+        >
+          {status === 'success' ? (
+            <div className="enter flex flex-col items-center gap-2 py-2 text-center">
+              <h3 className="text-xl font-bold text-foreground">{whitelist.successTitle}</h3>
+              <p className="text-[15px] leading-relaxed text-muted-foreground">
+                {whitelist.successDesc}
+              </p>
             </div>
-            <Field name="githubOrg" label={whitelist.githubOrg} placeholder={whitelist.githubOrgPh} />
+          ) : (
+            <>
+              <Field name="name" label={whitelist.name} placeholder={whitelist.namePh} required />
+              <Field
+                name="email"
+                type="email"
+                label={whitelist.email}
+                placeholder={whitelist.emailPh}
+                required
+              />
+              <Field name="team" label={whitelist.team} placeholder={whitelist.teamPh} required />
+              <div className="flex flex-col gap-[18px] sm:flex-row sm:gap-3.5">
+                <Select
+                  name="teamSize"
+                  label={whitelist.teamSize}
+                  placeholder={whitelist.selectPlaceholder}
+                  options={TEAM_SIZES}
+                  required
+                />
+                <Select
+                  name="role"
+                  label={whitelist.role}
+                  placeholder={whitelist.selectPlaceholder}
+                  options={whitelist.roles}
+                  required
+                />
+              </div>
+              <Field
+                name="githubOrg"
+                label={whitelist.githubOrg}
+                placeholder={whitelist.githubOrgPh}
+              />
+            </>
+          )}
 
-            <button
-              type="submit"
-              disabled={status === 'submitting'}
-              className="mt-1 inline-flex items-center justify-center gap-2 rounded-pill bg-primary px-6 py-3.5 text-[15px] font-bold text-on-primary transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {status === 'submitting' ? whitelist.submitting : whitelist.submit}
-              {status !== 'submitting' && <ArrowRight size={17} />}
-            </button>
-
-            {status === 'error' && (
-              <p className="text-center text-[13px] text-primary">{whitelist.error}</p>
+          <button
+            type="submit"
+            disabled={status === 'submitting' || status === 'success'}
+            className={`mt-1 inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3.5 text-[15px] font-bold transition-colors duration-300 disabled:cursor-default ${
+              status === 'success'
+                ? 'bg-success text-white'
+                : 'bg-primary text-on-primary hover:opacity-90'
+            }`}
+          >
+            {status === 'submitting' && (
+              <>
+                <Loader2 size={18} className="animate-spin" />
+                {whitelist.submitting}
+              </>
             )}
+            {status === 'success' && (
+              <>
+                <Check size={18} className="check-pop" />
+                {whitelist.successButton}
+              </>
+            )}
+            {(status === 'idle' || status === 'error') && (
+              <>
+                {whitelist.submit}
+                <ArrowRight size={17} />
+              </>
+            )}
+          </button>
 
-            <p className="inline-flex items-center justify-center gap-1.5 text-[13px] text-muted-foreground">
-              <ShieldCheck size={14} />
-              {whitelist.microcopy}
-            </p>
-            <p className="text-center text-[12px] text-muted-foreground">
-              {whitelist.consentPre}{' '}
-              <a
-                href="/privacy.html"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-foreground underline underline-offset-2 hover:text-primary"
-              >
-                {whitelist.consentLink}
-              </a>
-              .
-            </p>
-          </form>
-        )}
+          {status === 'error' && (
+            <p className="text-center text-[13px] text-primary">{whitelist.error}</p>
+          )}
+
+          {status !== 'success' && (
+            <>
+              <p className="inline-flex items-center justify-center gap-1.5 text-[13px] text-muted-foreground">
+                <ShieldCheck size={14} />
+                {whitelist.microcopy}
+              </p>
+              <p className="text-center text-[12px] text-muted-foreground">
+                {whitelist.consentPre}{' '}
+                <a
+                  href="/privacy.html"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-foreground underline underline-offset-2 hover:text-primary"
+                >
+                  {whitelist.consentLink}
+                </a>
+                .
+              </p>
+            </>
+          )}
+        </form>
       </div>
     </section>
   )

@@ -178,9 +178,10 @@ export const es: Resources = {
     roles: ['Founder / CTO', 'Eng. Lead', 'Product Manager', 'Desarrollador', 'Otro'],
     submit: 'Quiero entrar a la lista',
     submitting: 'Enviando…',
-    successTitle: '¡Estás en la lista! 🎉',
+    successButton: '¡Estás dentro!',
+    successTitle: 'Bienvenido a bordo — ¡gracias! 🧡',
     successDesc:
-      'Recibimos tus datos. En cuanto se abra tu plaza, te enviamos una invitación a tu email.',
+      'Revisamos cada equipo a mano y te contactaremos en un plazo de 10 días. Tu correo de confirmación ya va en camino — revisa tu bandeja de entrada.',
     error: 'No se pudo enviar ahora. Inténtalo de nuevo.',
     microcopy: 'Sin spam. Solo te avisamos cuando se abra tu plaza.',
     consentPre: 'Al unirte, aceptas nuestra',
