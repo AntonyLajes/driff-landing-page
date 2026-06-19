@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
 
@@ -98,7 +99,10 @@ export function Integrations() {
         subtitle={integrations.subtitle}
       />
 
-      <div className="mt-14 flex flex-col items-center gap-2 lg:flex-row lg:items-center lg:gap-0">
+      <div
+        className="assemble mt-14 flex flex-col items-center gap-2 lg:flex-row lg:items-center lg:gap-0"
+        style={{ '--seq': 1 } as CSSProperties}
+      >
         <Cluster label={integrations.origins} nodes={ORIGINS} />
 
         <Connector />
@@ -116,7 +120,10 @@ export function Integrations() {
         <Cluster label={integrations.destinations} nodes={DESTINATIONS} />
       </div>
 
-      <p className="mt-10 flex items-center justify-center gap-1.5 text-center text-[13px] text-muted-foreground">
+      <p
+        className="assemble mt-10 flex items-center justify-center gap-1.5 text-center text-[13px] text-muted-foreground"
+        style={{ '--seq': 2 } as CSSProperties}
+      >
         <span className="size-1.5 rounded-full bg-success" />
         {integrations.caption}
       </p>

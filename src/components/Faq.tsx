@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { type CSSProperties, useState } from 'react'
 import { Plus } from 'lucide-react'
 
 import { analytics } from '@/lib/analytics'
@@ -16,7 +16,11 @@ export function Faq() {
         {faq.items.map((item, i) => {
           const isOpen = open === i
           return (
-            <div key={item.q} className="rounded-[14px] border border-line bg-card">
+            <div
+              key={item.q}
+              className="assemble rounded-[14px] border border-line bg-card"
+              style={{ '--seq': i + 1 } as CSSProperties}
+            >
               <button
                 type="button"
                 onClick={() => {

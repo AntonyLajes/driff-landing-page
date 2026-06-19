@@ -20,27 +20,32 @@
   --primary: #e4572e;
   --on-primary: #ffffff;
   --success: #16a34a;
+  --danger: #dc2626;
   --ink: #09090b;
 }
 
 .dark {
   --background: #09090b;
-  --canvas: #0f0f11;
-  --card: #09090b;
+  --canvas: #0f0f12;
+  /* Elevated above background so cards read as floating glass over the
+     grid+glow backdrop (in the app this matches; here it adds depth). */
+  --card: #131317;
   --foreground: #fafafa;
   --muted: #27272a;
   --muted-foreground: #a1a1aa;
-  --line: #27272a;
+  --line: #26262b;
   --primary: #f06a44;
   --on-primary: #ffffff;
   --success: #22c55e;
-  --ink: #09090b;
+  --danger: #f0564a;
+  --ink: #060608;
 }
 
 :root,
 .dark {
   --primary-soft: color-mix(in oklab, var(--primary) 12%, transparent);
   --success-soft: color-mix(in oklab, var(--success) 14%, transparent);
+  --danger-soft: color-mix(in oklab, var(--danger) 15%, transparent);
 }
 
 @theme inline {
@@ -56,6 +61,8 @@
   --color-primary-soft: var(--primary-soft);
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
   --color-ink: var(--ink);
 
   --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -71,12 +78,11 @@
   html {
     @apply scroll-smooth;
     color-scheme: light;
-  }
-  html.dark {
-    color-scheme: dark;
+    overflow-x: hidden;
   }
   body {
     @apply m-0 min-h-dvh bg-background font-sans text-foreground antialiased;
+    overflow-x: hidden;
   }
   #root {
     @apply min-h-dvh;
@@ -84,6 +90,16 @@
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;
   }
+
+  /* Anchor targets (#features, #faq, …) clear the fixed nav. */
+  section[id] {
+    scroll-margin-top: 84px;
+  }
+}
+
+/* Normal-flow section wrapper (snap removed — clean, conventional scroll). */
+.panel {
+  position: relative;
 }
 
 @layer components {
@@ -250,6 +266,103 @@
     box-shadow: 0 18px 44px -14px color-mix(in oklab, var(--primary) 55%, transparent);
   }
 
+  /* ============================================================
+     Tech card — the unified "engineered" surface for content cards.
+     Glassy top-lit panel with a HUD top-edge sheen + a corner glow
+     that ignites on hover. `.tech-card-danger` makes it an always-on
+     red alert (used for the pain section).
+     ============================================================ */
+  .tech-card {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--card) 96%, var(--foreground) 4%) 0%,
+      var(--card) 55%
+    );
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    transition:
+      transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.26s ease,
+      box-shadow 0.26s ease;
+  }
+  /* Top-edge HUD sheen. */
+  .tech-card::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 0;
+    height: 1px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--primary) 55%, transparent),
+      transparent
+    );
+    transition: opacity 0.26s ease;
+  }
+  /* Corner glow, behind the content (negative z, contained by isolation). */
+  .tech-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      120% 80% at 100% 0%,
+      color-mix(in oklab, var(--primary) 12%, transparent),
+      transparent 60%
+    );
+    transition: opacity 0.3s ease;
+  }
+  .tech-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--primary) 45%, var(--line));
+    box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--primary) 35%, #0f0d2e);
+  }
+  .tech-card:hover::before,
+  .tech-card:hover::after {
+    opacity: 1;
+  }
+
+  /* Danger variant — a restrained alert accent (clean, not alarming). */
+  .tech-card-danger {
+    border-color: color-mix(in oklab, var(--danger) 16%, var(--line));
+  }
+  .tech-card-danger::before {
+    opacity: 0.45;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--danger) 60%, transparent),
+      transparent
+    );
+  }
+  .tech-card-danger::after {
+    opacity: 0.28;
+    background: radial-gradient(
+      120% 80% at 100% 0%,
+      color-mix(in oklab, var(--danger) 12%, transparent),
+      transparent 60%
+    );
+  }
+  .tech-card-danger:hover {
+    border-color: color-mix(in oklab, var(--danger) 45%, var(--line));
+    box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--danger) 35%, #0f0d2e);
+  }
+
+  /* Pulsing danger dot (red sibling of pulse-dot). */
+  .pulse-dot-danger {
+    animation: pulse-dot-danger 2s ease-in-out infinite;
+  }
+
   /* Dotted connector with an orange dot traveling toward the Driff node. */
   .dot-line {
     position: relative;
@@ -313,6 +426,91 @@
     transform: none;
   }
 
+  /* ============================================================
+     Choreographed assembly. Items hide until their ANCESTOR panel
+     becomes active (data-active="true"), then enter in sequence via
+     --seq * step. Driven by an attribute (not an add-once class) so
+     it replays every time the panel is re-entered.
+     ============================================================ */
+  .assemble {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  /* Cards/numbers pop into place. */
+  .assemble-pop {
+    transform: translateY(26px) scale(0.96);
+  }
+  /* Connector lines draw in horizontally. */
+  .assemble-line {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  [data-active='true'] .assemble {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--seq, 0) * 90ms);
+  }
+  [data-active='true'] .assemble-line {
+    opacity: 1;
+    transform: scaleX(1);
+    transition-delay: calc(var(--seq, 0) * 90ms);
+  }
+  /* Leaving: collapse fast & uniformly (no stagger as it scrolls away). */
+  [data-active='false'] .assemble,
+  [data-active='false'] .assemble-line {
+    transition-duration: 0.25s;
+    transition-delay: 0s;
+  }
+
+  /* ============================================================
+     Tech background — fixed grid + reactive glow (rendered by
+     TechBackground.tsx). pointer-events:none, sits behind content.
+     ============================================================ */
+  .tech-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    background-size: 60px 60px;
+    /* Densest near the top (hero), fading out down the page — ambient, not a table. */
+    -webkit-mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 15%, transparent 78%);
+    mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 15%, transparent 78%);
+  }
+  /* Soft warm glow behind the hero (positioned via utilities). */
+  .tech-glow {
+    height: 760px;
+    width: 760px;
+    border-radius: 9999px;
+    background: radial-gradient(
+      closest-side,
+      color-mix(in oklab, var(--primary) 18%, transparent),
+      transparent 70%
+    );
+    filter: blur(40px);
+  }
+
+  /* Scroll cue chevron in the hero. */
+  .scroll-cue {
+    animation: scroll-cue 2.1s ease-in-out infinite;
+  }
+
+  /* Blinking caret for the typewriter "Ask Driff" bar. */
+  .caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.05em;
+    transform: translateY(2px);
+    background: var(--primary);
+    animation: caret-blink 1.05s steps(1) infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .text-shine {
       animation: none;
@@ -332,6 +530,15 @@
     .card-hover:hover {
       transform: none;
     }
+    .tech-card {
+      transition: border-color 0.2s ease;
+    }
+    .tech-card:hover {
+      transform: none;
+    }
+    .pulse-dot-danger {
+      animation: none;
+    }
     .text-shine-primary,
     .driff-node,
     .float-tile,
@@ -347,6 +554,25 @@
       transform: none;
       transition: none;
     }
+    /* Choreography off: everything visible, no motion. */
+    .assemble,
+    .assemble-line,
+    [data-active] .assemble,
+    [data-active] .assemble-line {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .tech-grid-drift,
+    .scroll-cue {
+      animation: none;
+    }
+    .hero-pulse {
+      display: none;
+    }
+    .caret {
+      animation: none;
+    }
     .marker-word {
       background-size: 100% 100%;
       transition: none;
@@ -356,6 +582,38 @@
       animation: none;
       opacity: 0.6;
     }
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 56px 56px;
+  }
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
   }
 }
 
@@ -372,6 +630,16 @@
   0%,
   100% {
     box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 60%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+@keyframes pulse-dot-danger {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--danger) 65%, transparent);
   }
   70% {
     box-shadow: 0 0 0 6px transparent;

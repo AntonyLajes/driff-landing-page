@@ -6,20 +6,20 @@ export const zh: Resources = {
     features: '功能',
     integrations: '集成',
     faq: '常见问题',
-    cta: '加入候补名单',
+    cta: '抢先体验',
   },
   hero: {
-    badge: '内测 · 名额有限',
-    titlePre: '团队的',
-    titleShine: '进展',
-    titleMid: '，',
-    titleMarker: '自动记录。',
+    badge: '抢先体验 · 名额有限',
+    titlePre: '团队交付的一切，',
+    titleShine: '可搜索',
+    titleMid: '的',
+    titleMarker: '记忆。',
     titlePost: '',
     subtitle:
-      '每一个 PR、push 和发布都会变成清晰的摘要——而且你可以就团队交付的任何内容向 Driff 提问。',
-    ctaPrimary: '加入内测候补名单',
+      'Driff 自动把每一个 PR、push 和发布变成清晰的摘要，并把全部历史保存在一处。不必再写状态更新，也不必翻找 changelog：直接问什么时候、由谁、交付了什么。',
+    ctaPrimary: '获取抢先体验',
     ctaSecondary: '看看如何运作',
-    microcopy: '内测免费 · 约 5 分钟配置 · 仅限邀请',
+    microcopy: '抢先体验免费 · 约 5 分钟配置 · 仅限邀请',
   },
   preview: {
     title: '最近的摘要',
@@ -88,9 +88,8 @@ export const zh: Resources = {
   features: {
     eyebrow: '功能',
     title: '代码里的每一次变化，都变成叙述。',
-    featuredTitle: '统一信息流 + 效率指标',
-    featuredDesc:
-      '一个地方汇集团队的全部进展：按类型筛选、搜索，以及真正重要的指标——分析的 PR、commit、变更行数和节省的评审时间。',
+    featuredTitle: '统一信息流 + 指标',
+    featuredDesc: '团队的所有进展集中在一处，附带真正重要的指标。',
     stats: [
       { label: '已生成摘要' },
       { label: '已分析 PR' },
@@ -100,15 +99,15 @@ export const zh: Resources = {
     cards: [
       {
         title: 'Ask Driff',
-        desc: '用自然语言查询团队的全部历史——“X 功能是什么时候上线的？”——并获得带出处的答案。',
+        desc: '用自然语言查询团队历史，获得带出处的答案。',
       },
       {
         title: '自动摘要',
-        desc: '每个合并的 PR、直接 push 和发布都变成清晰、专业的摘要——附带 diff 统计。',
+        desc: '每个合并的 PR、push 和发布都变成清晰、专业的摘要。',
       },
       {
         title: '版本 Changelog',
-        desc: '提升版本号了？Driff 自动生成可直接分享给团队或客户的 changelog。',
+        desc: '提升版本号，立即获得可分享的 changelog。',
       },
     ],
   },
@@ -129,6 +128,8 @@ export const zh: Resources = {
     reportTitle: '提醒变更 — 近 3 个月.docx',
     reportMeta: '9 项变更 · 5 个 PR · 3 个版本',
     generating: "正在生成文档…",
+    demoReply:
+      '在产品中，我会根据团队真实的 PR、push 和发布历史来回答。这里只是一个快速演示，试试上面的建议看看完整回答。',
   },
   changelog: {
     eyebrow: '版本 CHANGELOG',
@@ -171,7 +172,7 @@ export const zh: Resources = {
     destinations: '目的地',
     available: '可用',
     inDevelopment: '开发中',
-    caption: '内测已提供 6 个集成 · 其余正在积极开发中。',
+    caption: '抢先体验已提供 6 个集成 · 其余正在积极开发中。',
   },
   beforeAfter: {
     eyebrow: '差异所在',
@@ -208,10 +209,10 @@ export const zh: Resources = {
     ],
   },
   whitelist: {
-    badge: '名额有限 · 8 到 15 个团队',
-    title: '加入 Driff 内测。',
+    badge: '抢先体验 · 8 到 15 个团队',
+    title: '抢先体验 Driff。',
     subtitle:
-      '内测期间免费使用、与我们直接对接，并真正影响产品。留下你的信息，我们会联系你。',
+      '抢先体验期间免费使用、与我们直接对接，并真正影响产品。留下你的邮箱，我们会联系你。',
     name: '你的名字',
     namePh: '例如：Antony Lajes',
     email: '邮箱',
@@ -224,7 +225,7 @@ export const zh: Resources = {
     githubOrgPh: 'github.com/your-org',
     selectPlaceholder: '请选择…',
     roles: ['创始人 / CTO', '技术负责人', '产品经理', '开发者', '其他'],
-    submit: '我要加入候补名单',
+    submit: '获取抢先体验',
     submitting: '提交中…',
     successButton: '你已加入！',
     successTitle: '欢迎加入 — 谢谢你！🧡',
@@ -252,7 +253,7 @@ export const zh: Resources = {
       },
       {
         q: '将来收费吗？',
-        a: '内测期间完全免费。付费方案稍后推出，基于用量——项目数、目的地和摘要量。',
+        a: '抢先体验期间完全免费。付费方案稍后推出，基于用量——项目数、目的地和摘要量。',
       },
       {
         q: '摘要用什么语言书写？',

@@ -6,20 +6,20 @@ export const de: Resources = {
     features: 'Funktionen',
     integrations: 'Integrationen',
     faq: 'FAQ',
-    cta: 'Auf die Warteliste',
+    cta: 'Früher Zugang',
   },
   hero: {
-    badge: 'Geschlossene Beta · Begrenzte Plätze',
-    titlePre: 'Der ',
-    titleShine: 'Fortschritt',
-    titleMid: ' deines Teams, ',
-    titleMarker: 'von selbst dokumentiert.',
+    badge: 'Früher Zugang · Begrenzte Plätze',
+    titlePre: 'Das ',
+    titleShine: 'durchsuchbare Gedächtnis',
+    titleMid: ' von ',
+    titleMarker: 'allem, was dein Team liefert.',
     titlePost: '',
     subtitle:
-      'Jeder PR, Push und jedes Release wird zu einer klaren Zusammenfassung — und du kannst Driff alles über das fragen, was dein Team geliefert hat.',
-    ctaPrimary: 'Auf die Beta-Warteliste',
+      'Driff verwandelt jeden PR, Push und jedes Release automatisch in eine klare Zusammenfassung und bewahrt die gesamte Historie an einem Ort. Schluss mit Status Updates schreiben und Changelogs durchwühlen: frag einfach, was geliefert wurde, wann und von wem.',
+    ctaPrimary: 'Früher Zugang sichern',
     ctaSecondary: 'So funktioniert es',
-    microcopy: 'Kostenlos in der Beta · Setup in ~5 Min · Nur auf Einladung',
+    microcopy: 'Kostenlos im frühen Zugang · Setup in ~5 Min · Nur auf Einladung',
   },
   preview: {
     title: 'Aktuelle Zusammenfassungen',
@@ -41,7 +41,7 @@ export const de: Resources = {
         time: '2 Std.',
       },
       {
-        title: 'Version 2.4.0 — Erinnerungen & Insights',
+        title: 'Version 2.4.0, Erinnerungen & Insights',
         meta: 'Release · main · e5f6a7b  ·  Changelog erstellt',
         time: 'gestern',
       },
@@ -51,7 +51,7 @@ export const de: Resources = {
     eyebrow: 'DAS PROBLEM',
     title: 'Schnelle Teams verlieren den Überblick über das Gelieferte.',
     subtitle:
-      'Je mehr das Team liefert, desto schwerer ist nachzuvollziehen, was passiert ist — und die Kosten sind unsichtbar.',
+      'Je mehr das Team liefert, desto schwerer ist nachzuvollziehen, was passiert ist, und die Kosten sind unsichtbar.',
     cards: [
       {
         title: 'Devs verlieren Zeit mit Status-Updates',
@@ -82,16 +82,15 @@ export const de: Resources = {
       },
       {
         title: 'Überblick gewinnen',
-        desc: 'Alles erscheint automatisch in deinem Feed und den gewählten Zielen — mit Produktivitätsmetriken fürs Team.',
+        desc: 'Alles erscheint automatisch in deinem Feed und den gewählten Zielen, mit Produktivitätsmetriken fürs Team.',
       },
     ],
   },
   features: {
     eyebrow: 'FUNKTIONEN',
     title: 'Alles, was sich im Code ändert, wird zur Erzählung.',
-    featuredTitle: 'Einheitlicher Feed + Produktivitätsmetriken',
-    featuredDesc:
-      'Ein Ort für den gesamten Team-Fortschritt: Filter nach Typ, Suche und die Metriken, die zählen — analysierte PRs, Commits, geänderte Zeilen und gesparte Review-Zeit.',
+    featuredTitle: 'Einheitlicher Feed + Metriken',
+    featuredDesc: 'Der ganze Fortschritt deines Teams an einem Ort, mit den Metriken, die zählen.',
     stats: [
       { label: 'Zusammenfassungen erstellt' },
       { label: 'Analysierte PRs' },
@@ -101,15 +100,15 @@ export const de: Resources = {
     cards: [
       {
         title: 'Ask Driff',
-        desc: 'Frag die gesamte Historie deines Teams in natürlicher Sprache — „wann wurde Feature X veröffentlicht?“ — und erhalte eine Antwort mit Quellen.',
+        desc: 'Frag die Historie deines Teams in natürlicher Sprache und erhalte eine belegte Antwort.',
       },
       {
         title: 'Automatische Zusammenfassungen',
-        desc: 'Jeder gemergte PR, direkte Push und jedes Release wird zu einer klaren, professionellen Zusammenfassung — mit Diff-Statistiken.',
+        desc: 'Jeder PR, Push und jedes Release wird zu einer klaren Zusammenfassung.',
       },
       {
         title: 'Versions-Changelogs',
-        desc: 'Version erhöht? Driff erzeugt ein teilfertiges Changelog für dein Team oder deine Kunden.',
+        desc: 'Version erhöhen und ein teilbares Changelog erhalten.',
       },
     ],
   },
@@ -117,7 +116,7 @@ export const de: Resources = {
     eyebrow: 'ASK DRIFF',
     title: 'Frag alles über das, was dein Team geliefert hat.',
     subtitle:
-      'Driff merkt sich jeden PR, Push und jedes Release. Frag in natürlicher Sprache und erhalte eine Antwort — mit der genauen Version und den PRs.',
+      'Driff merkt sich jeden PR, Push und jedes Release. Frag in natürlicher Sprache und erhalte eine Antwort, mit der genauen Version und den PRs.',
     inputPlaceholder: 'Frag Driff alles…',
     q1: 'Wann haben wir Streak Freeze veröffentlicht?',
     a1: 'Streak Freeze kam in v2.4.0. Es landete in PR #142 und #150 und lässt Nutzer einen Tag pro Woche aussetzen, ohne ihre Serie zu verlieren.',
@@ -127,16 +126,18 @@ export const de: Resources = {
     suggest1: 'Letzte Woche zusammenfassen',
     suggest2: 'Was kam in v2.4.0?',
     q3: 'Erstelle ein Dokument zu den wichtigsten Erinnerungs-Änderungen der letzten 3 Monate.',
-    a3: 'Fertig — ich habe alle Erinnerungs- und Benachrichtigungs-Änderungen der letzten 3 Monate in einem Dokument zusammengefasst, bereit zum Download.',
-    reportTitle: 'Erinnerungs-Änderungen — letzte 3 Monate.docx',
+    a3: 'Fertig, ich habe alle Erinnerungs- und Benachrichtigungs-Änderungen der letzten 3 Monate in einem Dokument zusammengefasst, bereit zum Download.',
+    reportTitle: 'Erinnerungs-Änderungen, letzte 3 Monate.docx',
     reportMeta: '9 Änderungen · 5 PRs · 3 Releases',
     generating: "Dokument wird erstellt…",
+    demoReply:
+      'Im Produkt beantworte ich das aus der echten Historie der PRs, Pushes und Releases deines Teams. Das hier ist eine schnelle Demo, probier also einen der Vorschläge für eine vollständige Antwort.',
   },
   changelog: {
     eyebrow: 'VERSIONS-CHANGELOGS',
     title: 'Jedes Release wird zu einem Changelog.',
     subtitle:
-      'Erhöhe die Version und Driff schreibt ein sauberes, gruppiertes Changelog — bereit zum Teilen mit deinem Team oder deinen Kunden.',
+      'Erhöhe die Version und Driff schreibt ein sauberes, gruppiertes Changelog, bereit zum Teilen mit deinem Team oder deinen Kunden.',
     version: 'Version 2.4.0',
     date: 'Veröffentlicht am 12. Apr',
     autoTag: 'Automatisch erstellt',
@@ -145,7 +146,7 @@ export const de: Resources = {
       {
         label: 'Neu',
         items: [
-          'Streak Freeze — setze einen Tag pro Woche aus, ohne deine Serie zu verlieren',
+          'Streak Freeze, setze einen Tag pro Woche aus, ohne deine Serie zu verlieren',
           'Wöchentliche Insights: deine besten Gewohnheiten und Trends auf einen Blick',
         ],
       },
@@ -169,12 +170,12 @@ export const de: Resources = {
     eyebrow: 'INTEGRATIONEN',
     title: 'Verbinde deine Quellen. Liefere, wo das Team schon arbeitet.',
     subtitle:
-      'Driff holt Änderungen aus vielen Code-Quellen und veröffentlicht die Zusammenfassungen an mehreren Zielen — ohne dass du das Tool wechselst.',
+      'Driff holt Änderungen aus vielen Code-Quellen und veröffentlicht die Zusammenfassungen an mehreren Zielen, ohne dass du das Tool wechselst.',
     origins: 'QUELLEN',
     destinations: 'ZIELE',
     available: 'Verfügbar',
     inDevelopment: 'in Entwicklung',
-    caption: '6 Integrationen in der Beta verfügbar · der Rest in aktiver Entwicklung.',
+    caption: '6 Integrationen im frühen Zugang verfügbar · der Rest in aktiver Entwicklung.',
   },
   beforeAfter: {
     eyebrow: 'DER UNTERSCHIED',
@@ -187,7 +188,7 @@ export const de: Resources = {
     badge: 'MIT DRIFF',
     afterTitle: 'Behoben: Serien wurden um Mitternacht in anderen Zeitzonen zurückgesetzt',
     afterBody:
-      'Ein Fehler wurde behoben, bei dem die Serie eines Nutzers um 00:00 UTC statt um seine lokale Mitternacht zurückgesetzt wurde — was Serien außerhalb von UTC zerstörte. Der Erinnerungs-Scheduler wurde ebenfalls vereinfacht.',
+      'Ein Fehler wurde behoben, bei dem die Serie eines Nutzers um 00:00 UTC statt um seine lokale Mitternacht zurückgesetzt wurde, was Serien außerhalb von UTC zerstörte. Der Erinnerungs-Scheduler wurde ebenfalls vereinfacht.',
     impact: 'Impact: Nutzer außerhalb von UTC verlieren ihre Serie nachts nicht mehr.',
     meta: 'PR #148 · fix/tz-streak-reset → main',
   },
@@ -199,11 +200,11 @@ export const de: Resources = {
     cards: [
       {
         title: 'Gründer & CTOs',
-        desc: 'Überblick darüber, was das Team liefert — ohne jemandem hinterherzulaufen.',
+        desc: 'Überblick darüber, was das Team liefert, ohne jemandem hinterherzulaufen.',
       },
       {
         title: 'Product Manager',
-        desc: 'Verstehe, was getan wurde und welchen Impact es hatte — ohne eine Zeile Code zu lesen.',
+        desc: 'Verstehe, was getan wurde und welchen Impact es hatte, ohne eine Zeile Code zu lesen.',
       },
       {
         title: 'Entwickler',
@@ -212,10 +213,10 @@ export const de: Resources = {
     ],
   },
   whitelist: {
-    badge: 'Begrenzte Plätze · 8 bis 15 Teams',
-    title: 'Tritt der geschlossenen Beta von Driff bei.',
+    badge: 'Früher Zugang · 8 bis 15 Teams',
+    title: 'Sichere dir frühen Zugang zu Driff.',
     subtitle:
-      'Kostenloser Zugang während der Beta, direkter Support von uns und echter Einfluss aufs Produkt. Hinterlasse deine Daten und wir melden uns.',
+      'Kostenlos während des frühen Zugangs, direkter Support von uns und echter Einfluss aufs Produkt. Hinterlasse deine E-Mail und wir melden uns.',
     name: 'Dein Name',
     namePh: 'z. B. Antony Lajes',
     email: 'E-Mail',
@@ -228,12 +229,12 @@ export const de: Resources = {
     githubOrgPh: 'github.com/deine-org',
     selectPlaceholder: 'Auswählen…',
     roles: ['Gründer / CTO', 'Eng. Lead', 'Product Manager', 'Entwickler', 'Andere'],
-    submit: 'Ich will auf die Warteliste',
+    submit: 'Früher Zugang sichern',
     submitting: 'Wird gesendet…',
     successButton: 'Du bist dabei!',
-    successTitle: 'Willkommen an Bord — danke! 🧡',
+    successTitle: 'Willkommen an Bord, danke! 🧡',
     successDesc:
-      'Wir prüfen jedes Team persönlich und melden uns innerhalb von 10 Tagen. Deine Bestätigungs-E-Mail ist schon unterwegs — schau in dein Postfach.',
+      'Wir prüfen jedes Team persönlich und melden uns innerhalb von 10 Tagen. Deine Bestätigungs-E-Mail ist schon unterwegs, schau in dein Postfach.',
     error: 'Konnte gerade nicht gesendet werden. Bitte versuch es erneut.',
     microcopy: 'Kein Spam. Wir melden uns nur, wenn dein Platz frei wird.',
     consentPre: 'Mit dem Beitritt akzeptierst du unsere',
@@ -245,11 +246,11 @@ export const de: Resources = {
     items: [
       {
         q: 'Sind meine Daten und mein Code sicher?',
-        a: 'Driff liest nur die Metadaten und Diffs, die für die Zusammenfassungen nötig sind — mit minimalen Berechtigungen. Wir speichern deinen Quellcode nicht.',
+        a: 'Driff liest nur die Metadaten und Diffs, die für die Zusammenfassungen nötig sind, mit minimalen Berechtigungen. Wir speichern deinen Quellcode nicht.',
       },
       {
         q: 'Muss ich meinen Workflow ändern?',
-        a: 'Nein. Du nutzt weiter die Tools, die du schon verwendest — Driff arbeitet im Hintergrund, ohne zu stören.',
+        a: 'Nein. Du nutzt weiter die Tools, die du schon verwendest, Driff arbeitet im Hintergrund, ohne zu stören.',
       },
       {
         q: 'Mit welchen Tools integriert Driff?',
@@ -257,7 +258,7 @@ export const de: Resources = {
       },
       {
         q: 'Was wird es kosten?',
-        a: 'Während der Beta ist es komplett kostenlos. Bezahlpläne kommen später, basierend auf Nutzung — Projekte, Ziele und Volumen der Zusammenfassungen.',
+        a: 'Während des frühen Zugangs ist es komplett kostenlos. Bezahlpläne kommen später, basierend auf Nutzung, Projekte, Ziele und Volumen der Zusammenfassungen.',
       },
       {
         q: 'In welcher Sprache werden die Zusammenfassungen geschrieben?',

@@ -6,20 +6,20 @@ export const pt: Resources = {
     features: 'Recursos',
     integrations: 'Integrações',
     faq: 'FAQ',
-    cta: 'Entrar na whitelist',
+    cta: 'Acesso antecipado',
   },
   hero: {
-    badge: 'Beta fechado · Vagas limitadas',
-    titlePre: 'O ',
-    titleShine: 'progresso',
-    titleMid: ' do seu time, ',
-    titleMarker: 'escrito sozinho.',
+    badge: 'Acesso antecipado · Vagas limitadas',
+    titlePre: 'A ',
+    titleShine: 'memória pesquisável',
+    titleMid: ' de ',
+    titleMarker: 'tudo que seu time entrega.',
     titlePost: '',
     subtitle:
-      'Cada PR, push e release vira um resumo claro — e você pode perguntar qualquer coisa ao Driff sobre o que o time entregou.',
-    ctaPrimary: 'Entrar na whitelist do Beta',
+      'O Driff transforma cada PR, push e release num resumo claro e automático, e guarda todo o histórico num lugar só. Pare de escrever update e de garimpar changelog: é só perguntar o que foi entregue, quando e por quem.',
+    ctaPrimary: 'Quero acesso antecipado',
     ctaSecondary: 'Ver como funciona',
-    microcopy: 'Grátis no beta · Setup em ~5 min · Entrada por convite',
+    microcopy: 'Grátis no acesso antecipado · Setup em ~5 min · Só por convite',
   },
   preview: {
     title: 'Resumos recentes',
@@ -41,7 +41,7 @@ export const pt: Resources = {
         time: '2h',
       },
       {
-        title: 'Versão 2.4.0 — lembretes & insights',
+        title: 'Versão 2.4.0, lembretes & insights',
         meta: 'Release · main · e5f6a7b  ·  Changelog gerado',
         time: 'ontem',
       },
@@ -51,7 +51,7 @@ export const pt: Resources = {
     eyebrow: 'O PROBLEMA',
     title: 'Times que se movem rápido perdem o controle do que foi feito.',
     subtitle:
-      'Quanto mais o time entrega, mais difícil fica saber o que aconteceu — e o custo é invisível.',
+      'Quanto mais o time entrega, mais difícil fica saber o que aconteceu, e o custo é invisível.',
     cards: [
       {
         title: 'Devs perdem tempo escrevendo updates',
@@ -89,9 +89,8 @@ export const pt: Resources = {
   features: {
     eyebrow: 'RECURSOS',
     title: 'Tudo que muda no código vira narrativa.',
-    featuredTitle: 'Feed unificado + Métricas de produtividade',
-    featuredDesc:
-      'Um único lugar com todo o progresso do time: filtros por tipo, busca e métricas que importam — PRs analisados, commits, linhas alteradas e tempo de review economizado.',
+    featuredTitle: 'Feed unificado + métricas',
+    featuredDesc: 'Todo o progresso do time num lugar só, com as métricas que importam.',
     stats: [
       { label: 'Resumos gerados' },
       { label: 'PRs analisados' },
@@ -101,15 +100,15 @@ export const pt: Resources = {
     cards: [
       {
         title: 'Ask Driff',
-        desc: 'Pergunte sobre todo o histórico do time em linguagem natural — "quando a feature X foi lançada?" — e receba a resposta com as fontes.',
+        desc: 'Pergunte sobre o histórico do time em linguagem natural e receba a resposta com as fontes.',
       },
       {
         title: 'Resumos automáticos',
-        desc: 'Todo PR mergeado, push direto e release vira um resumo claro e profissional — com as estatísticas do diff.',
+        desc: 'Cada PR, push e release vira um resumo claro e profissional.',
       },
       {
         title: 'Changelog de versões',
-        desc: 'Bumpou a versão? O Driff gera um changelog pronto pra compartilhar com o time ou com clientes.',
+        desc: 'Suba a versão e tenha um changelog pronto pra compartilhar.',
       },
     ],
   },
@@ -117,7 +116,7 @@ export const pt: Resources = {
     eyebrow: 'ASK DRIFF',
     title: 'Pergunte qualquer coisa sobre o que seu time entregou.',
     subtitle:
-      'O Driff lembra de cada PR, push e release. Pergunte em linguagem natural e receba a resposta — com a versão e os PRs exatos.',
+      'O Driff lembra de cada PR, push e release. Pergunte em linguagem natural e receba a resposta, com a versão e os PRs exatos.',
     inputPlaceholder: 'Pergunte qualquer coisa ao Driff…',
     q1: 'Quando lançamos o streak freeze?',
     a1: 'O streak freeze saiu na v2.4.0. Veio nos PRs #142 e #150 e deixa o usuário pular um dia por semana sem perder a sequência.',
@@ -127,16 +126,18 @@ export const pt: Resources = {
     suggest1: 'Resumir a última semana',
     suggest2: 'O que saiu na v2.4.0?',
     q3: 'Gere um doc sobre as principais mudanças de lembretes dos últimos 3 meses.',
-    a3: 'Pronto — reuni todas as mudanças de lembrete e notificação dos últimos 3 meses num documento, pronto pra baixar.',
-    reportTitle: 'Mudanças de lembretes — últimos 3 meses.docx',
+    a3: 'Pronto, reuni todas as mudanças de lembrete e notificação dos últimos 3 meses num documento, pronto pra baixar.',
+    reportTitle: 'Mudanças de lembretes, últimos 3 meses.docx',
     reportMeta: '9 mudanças · 5 PRs · 3 releases',
     generating: "Gerando documento…",
+    demoReply:
+      'No produto, eu respondo isso a partir do histórico real de PRs, pushes e releases do seu time. Aqui é uma demo rápida, então experimente uma das sugestões pra ver uma resposta completa.',
   },
   changelog: {
     eyebrow: 'CHANGELOG DE VERSÕES',
     title: 'Cada release vira um changelog.',
     subtitle:
-      'Bumpou a versão e o Driff escreve um changelog limpo e agrupado — pronto pra compartilhar com o time ou com seus clientes.',
+      'Bumpou a versão e o Driff escreve um changelog limpo e agrupado, pronto pra compartilhar com o time ou com seus clientes.',
     version: 'Versão 2.4.0',
     date: 'Lançada em 12 de abr',
     autoTag: 'Gerado automaticamente',
@@ -145,7 +146,7 @@ export const pt: Resources = {
       {
         label: 'Novidades',
         items: [
-          'Streak freeze — pule um dia por semana sem perder a sequência',
+          'Streak freeze, pule um dia por semana sem perder a sequência',
           'Insights semanais: seus melhores hábitos e tendências num relance',
         ],
       },
@@ -169,12 +170,12 @@ export const pt: Resources = {
     eyebrow: 'INTEGRAÇÕES',
     title: 'Conecte suas origens. Entregue onde o time já trabalha.',
     subtitle:
-      'O Driff busca o que muda em diversas fontes de código e publica os resumos em vários destinos — sem você trocar de ferramenta.',
+      'O Driff busca o que muda em diversas fontes de código e publica os resumos em vários destinos, sem você trocar de ferramenta.',
     origins: 'ORIGENS',
     destinations: 'DESTINOS',
     available: 'Disponível',
     inDevelopment: 'em desenvolvimento',
-    caption: '6 integrações disponíveis no beta · as demais em desenvolvimento ativo.',
+    caption: '6 integrações disponíveis no acesso antecipado · as demais em desenvolvimento ativo.',
   },
   beforeAfter: {
     eyebrow: 'O DIFERENCIAL',
@@ -203,7 +204,7 @@ export const pt: Resources = {
       },
       {
         title: 'Product Managers',
-        desc: 'Entenda o que foi feito e o impacto — sem precisar ler uma linha de código.',
+        desc: 'Entenda o que foi feito e o impacto, sem precisar ler uma linha de código.',
       },
       {
         title: 'Desenvolvedores',
@@ -212,10 +213,10 @@ export const pt: Resources = {
     ],
   },
   whitelist: {
-    badge: 'Vagas limitadas · 8 a 15 times',
-    title: 'Entre no beta fechado do Driff.',
+    badge: 'Acesso antecipado · 8 a 15 times',
+    title: 'Garanta acesso antecipado ao Driff.',
     subtitle:
-      'Acesso gratuito durante o beta, suporte direto com a gente e influência real no produto. Deixe seus dados e entramos em contato.',
+      'Grátis durante o acesso antecipado, suporte direto com a gente e influência real no produto. Deixe seu e-mail e entramos em contato.',
     name: 'Seu nome',
     namePh: 'Ex: Antony Lajes',
     email: 'E-mail',
@@ -228,12 +229,12 @@ export const pt: Resources = {
     githubOrgPh: 'github.com/sua-org',
     selectPlaceholder: 'Selecione…',
     roles: ['Founder / CTO', 'Eng. Lead', 'Product Manager', 'Desenvolvedor', 'Outro'],
-    submit: 'Quero entrar na whitelist',
+    submit: 'Quero acesso antecipado',
     submitting: 'Enviando…',
     successButton: 'Você entrou!',
-    successTitle: 'Bem-vindo a bordo — obrigado! 🧡',
+    successTitle: 'Bem-vindo a bordo, obrigado! 🧡',
     successDesc:
-      'A gente avalia cada time na mão e entra em contato em até 10 dias. Seu e-mail de confirmação já está a caminho — fica de olho na caixa de entrada.',
+      'A gente avalia cada time na mão e entra em contato em até 10 dias. Seu e-mail de confirmação já está a caminho, fica de olho na caixa de entrada.',
     error: 'Não foi possível enviar agora. Tente novamente.',
     microcopy: 'Sem spam. Só te avisamos quando sua vaga abrir.',
     consentPre: 'Ao entrar, você concorda com a nossa',
@@ -249,7 +250,7 @@ export const pt: Resources = {
       },
       {
         q: 'Preciso mudar meu fluxo de trabalho?',
-        a: 'Não. Você continua usando as ferramentas que já usa — o Driff trabalha em segundo plano, sem atrapalhar.',
+        a: 'Não. Você continua usando as ferramentas que já usa, o Driff trabalha em segundo plano, sem atrapalhar.',
       },
       {
         q: 'Com quais ferramentas o Driff integra?',
@@ -257,7 +258,7 @@ export const pt: Resources = {
       },
       {
         q: 'Quanto vai custar?',
-        a: 'Durante o beta é totalmente gratuito. Os planos pagos virão depois, com base no uso — projetos, destinos e volume de resumos.',
+        a: 'Durante o acesso antecipado é totalmente gratuito. Os planos pagos virão depois, com base no uso, projetos, destinos e volume de resumos.',
       },
       {
         q: 'Em que idioma os resumos são escritos?',

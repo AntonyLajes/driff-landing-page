@@ -1,20 +1,15 @@
-import type { ComponentProps, ReactNode } from 'react'
+import type { ComponentProps, CSSProperties, ReactNode } from 'react'
 import type { LucideIcon } from 'lucide-react'
 
 import { MarkerText } from './MarkerText'
 
+// Tone is kept for call-site compatibility, but in the dark-tech redesign every
+// section is transparent so the fixed grid + glow backdrop shows through.
 type Tone = 'background' | 'canvas' | 'ink'
-
-const toneClass: Record<Tone, string> = {
-  background: 'bg-background',
-  canvas: 'bg-canvas',
-  ink: 'bg-ink',
-}
 
 /** Full-width section with vertical rhythm padding and a centered container. */
 export function Section({
   id,
-  tone = 'background',
   className = '',
   children,
 }: {
@@ -24,8 +19,8 @@ export function Section({
   children: ReactNode
 }) {
   return (
-    <section id={id} className={`w-full ${toneClass[tone]} ${className}`}>
-      <div className="mx-auto w-full max-w-[1140px] px-6 py-20 sm:px-8 sm:py-[88px]">
+    <section id={id} className={`w-full ${className}`}>
+      <div className="mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-8 sm:py-20">
         {children}
       </div>
     </section>
@@ -47,7 +42,10 @@ export function SectionHead({
   className?: string
 }) {
   return (
-    <div className={`mx-auto flex max-w-[760px] flex-col items-center gap-4 text-center ${className}`}>
+    <div
+      className={`assemble mx-auto flex max-w-[760px] flex-col items-center gap-4 text-center ${className}`}
+      style={{ '--seq': 0 } as CSSProperties}
+    >
       <span
         className={`text-[13px] font-bold tracking-wider ${
           eyebrowTone === 'primary' ? 'text-primary' : 'text-muted-foreground'
@@ -67,25 +65,28 @@ export function SectionHead({
   )
 }
 
-/** Gray rounded square holding a lucide icon (Halo Mono type-chip). */
+/** Rounded tile holding a lucide icon (Halo Mono type-chip), tech-styled with
+ *  an inset ring. `danger` tone makes it a red alert glyph. */
 export function IconChip({
   icon: Icon,
   size = 'md',
+  tone = 'default',
 }: {
   icon: LucideIcon
   size?: 'sm' | 'md'
+  tone?: 'default' | 'danger'
 }) {
   const box = size === 'sm' ? 'size-[38px] rounded-[9px]' : 'size-11 rounded-chip'
   const glyph = size === 'sm' ? 18 : 21
+  const tint =
+    tone === 'danger'
+      ? 'bg-danger-soft text-danger ring-1 ring-inset ring-danger/25'
+      : 'bg-muted text-foreground ring-1 ring-inset ring-line/70 group-hover:bg-primary-soft group-hover:text-primary group-hover:ring-primary/30'
   return (
     <span
-      className={`flex shrink-0 items-center justify-center bg-muted transition-colors duration-200 group-hover:bg-primary-soft ${box}`}
+      className={`flex shrink-0 items-center justify-center transition-all duration-200 ${box} ${tint}`}
     >
-      <Icon
-        size={glyph}
-        className="text-foreground transition-colors duration-200 group-hover:text-primary"
-        strokeWidth={2}
-      />
+      <Icon size={glyph} strokeWidth={2} className="transition-colors duration-200" />
     </span>
   )
 }
@@ -98,11 +99,11 @@ export function PillButton({
   ...props
 }: ComponentProps<'button'> & { variant?: 'primary' | 'outline' }) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3 text-[15px] font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60'
+    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-pill px-6 py-3 text-[15px] font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60'
   const styles =
     variant === 'primary'
-      ? 'bg-primary text-on-primary hover:opacity-90 hover:shadow-[0_10px_30px_-8px_var(--primary)]'
-      : 'border border-line bg-background text-foreground hover:bg-muted'
+      ? 'bg-primary text-on-primary shadow-[0_10px_28px_-8px_var(--primary)] hover:-translate-y-0.5 hover:shadow-[0_16px_36px_-8px_var(--primary)] active:translate-y-0'
+      : 'border border-line bg-background text-foreground hover:border-primary/40 hover:bg-muted'
   return (
     <button className={`${base} ${styles} ${className}`} {...props}>
       {children}

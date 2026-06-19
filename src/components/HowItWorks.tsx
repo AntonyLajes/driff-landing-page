@@ -1,49 +1,41 @@
-import { Fragment } from 'react'
-import { ArrowRight, BarChart3, ChevronDown, Plug, Zap, type LucideIcon } from 'lucide-react'
+import { type CSSProperties } from 'react'
 
 import { useCopy } from '@/i18n'
-import { IconChip, Section, SectionHead } from './primitives'
-
-const STEP_ICONS: LucideIcon[] = [Plug, Zap, BarChart3]
-
-function Connector() {
-  return (
-    <div className="flex shrink-0 items-center justify-center py-1 lg:px-1">
-      <div className="hidden items-center gap-1.5 lg:flex">
-        <span className="flow-line h-0.5 w-10 rounded-full" />
-        <ArrowRight size={16} className="text-primary" />
-      </div>
-      <ChevronDown size={22} className="text-primary lg:hidden" />
-    </div>
-  )
-}
+import { MarkerText } from './MarkerText'
+import { Section } from './primitives'
 
 export function HowItWorks() {
   const { how } = useCopy()
   return (
-    <Section id="how-it-works" tone="background">
-      <SectionHead
-        eyebrow={how.eyebrow}
-        eyebrowTone="primary"
-        title={how.title}
-        subtitle={how.subtitle}
-      />
-      <div className="mt-14 flex flex-col items-stretch gap-2 lg:flex-row lg:items-stretch lg:gap-0">
-        {how.steps.map((s, i) => (
-          <Fragment key={s.title}>
-            <div className="card-hover group flex flex-1 flex-col gap-4 rounded-card border border-line bg-card p-7">
-              <div className="flex items-start justify-between">
-                <IconChip icon={STEP_ICONS[i]} />
-                <span className="text-3xl font-bold leading-none text-muted-foreground/25 transition-colors duration-200 group-hover:text-primary/70">
-                  0{i + 1}
-                </span>
+    <Section id="how-it-works">
+      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        {/* Intro */}
+        <div className="assemble flex flex-col gap-4" style={{ '--seq': 0 } as CSSProperties}>
+          <span className="text-[13px] font-bold tracking-wider text-primary">{how.eyebrow}</span>
+          <h2 className="text-balance text-3xl font-bold leading-[1.12] text-foreground sm:text-[40px]">
+            <MarkerText>{how.title}</MarkerText>
+          </h2>
+          <p className="text-pretty text-lg leading-relaxed text-muted-foreground">{how.subtitle}</p>
+        </div>
+
+        {/* Steps as topics */}
+        <div className="flex flex-col lg:pt-1">
+          {how.steps.map((s, i) => (
+            <div
+              key={s.title}
+              className={`assemble flex gap-5 py-6 ${i > 0 ? 'border-t border-line' : 'lg:pt-0'}`}
+              style={{ '--seq': i + 1 } as CSSProperties}
+            >
+              <span className="font-mono text-2xl font-bold leading-none text-primary/40">
+                0{i + 1}
+              </span>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-xl font-bold text-foreground">{s.title}</h3>
+                <p className="text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
               </div>
-              <h3 className="text-xl font-bold text-foreground">{s.title}</h3>
-              <p className="text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
             </div>
-            {i < how.steps.length - 1 && <Connector />}
-          </Fragment>
-        ))}
+          ))}
+        </div>
       </div>
     </Section>
   )

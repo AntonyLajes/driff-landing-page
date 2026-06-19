@@ -19,8 +19,8 @@ export function Footer() {
   const legalLinks = [{ label: footer.privacy, href: '/privacy.html' }]
 
   return (
-    <footer className="w-full bg-ink">
-      <div className="mx-auto w-full max-w-[1140px] px-6 py-14 sm:px-8">
+    <footer className="w-full border-t border-line bg-canvas">
+      <div className="mx-auto w-full max-w-[1280px] px-6 py-14 sm:px-8">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           {/* Brand */}
           <div className="flex max-w-xs flex-col gap-4">
@@ -28,15 +28,15 @@ export function Footer() {
               <span className="flex size-7 items-center justify-center rounded-lg bg-primary">
                 <DriffMark size={17} className="text-on-primary" />
               </span>
-              <span className="text-lg font-bold text-[#FAFAFA]">driff</span>
+              <span className="text-lg font-bold text-foreground">driff</span>
             </a>
-            <p className="text-[13px] leading-relaxed text-[#A1A1AA]">{footer.tagline}</p>
+            <p className="text-[13px] leading-relaxed text-muted-foreground">{footer.tagline}</p>
             <a
               href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="flex size-9 items-center justify-center rounded-pill border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/25 hover:text-[#FAFAFA]"
+              className="flex size-9 items-center justify-center rounded-pill border border-line text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
             >
               <SiGithub size={16} />
             </a>
@@ -53,8 +53,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6">
-          <span className="text-[13px] text-[#71717A]">© 2026 Driff · {footer.rights}</span>
+        <div className="mt-12 border-t border-line pt-6">
+          <span className="text-[13px] text-muted-foreground">© 2026 Driff · {footer.rights}</span>
         </div>
       </div>
     </footer>
@@ -70,7 +70,9 @@ function FooterColumn({
 }) {
   return (
     <div className="flex flex-col gap-3.5">
-      <span className="text-xs font-bold uppercase tracking-wider text-[#71717A]">{title}</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+        {title}
+      </span>
       <ul className="flex flex-col gap-2.5">
         {links.map((l) => (
           <li key={l.label}>
@@ -80,7 +82,7 @@ function FooterColumn({
               className={`text-sm transition-colors ${
                 l.accent
                   ? 'font-semibold text-primary hover:opacity-80'
-                  : 'text-[#A1A1AA] hover:text-[#FAFAFA]'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {l.label}

@@ -54,8 +54,8 @@ export function Nav() {
       <nav
         className={`relative flex items-center justify-between transition-[max-width,padding] duration-300 ${
           scrolled
-            ? 'nav-pill-in w-[calc(100%-1.5rem)] max-w-[960px] rounded-pill border border-line/70 bg-background/75 px-5 py-2.5 shadow-card backdrop-blur-xl'
-            : 'w-full max-w-[1140px] border border-line/0 px-6 py-4 sm:px-8'
+            ? 'nav-pill-in w-[calc(100%-1.5rem)] max-w-[1080px] rounded-pill border border-line/70 bg-background/75 px-5 py-2.5 shadow-card backdrop-blur-xl'
+            : 'w-full max-w-[1280px] border border-line/0 px-6 py-4 sm:px-8'
         }`}
       >
         <a href="#top" className="flex items-center gap-2.5">
